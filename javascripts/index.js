@@ -69,17 +69,40 @@ let code =
 
 ///
 
-fetch ("https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York")
-.then(resp => resp.json())
-.then(function (weather){
- let weatherDate = weather.daily.time[0];
- let weatherCode = weather.daily.weathercode[0];
- let tempMin = Math.round(weather.daily.temperature_2m_min[0]);
- let tempMax = Math.round(weather.daily.temperature_2m_max[0]);
-dateMap(weatherDate, weatherCode, tempMin, tempMax);
-console.log(weather, weatherDate, weatherCode,tempMin, tempMax)
- return weather, weatherDate, weatherCode
-})
+
+document.getElementById("submit-btn").addEventListener("click", function(event){
+  event.preventDefault()
+  let inputZipCode = document.getElementById("input_text").value
+  return fetch (`https://geocoding-api.open-meteo.com/v1/search?name=${inputZipCode}&count=1`)
+  .then(resp => resp.json())
+  .then(function (results){
+    let zipName = results.results[0].name
+    let zipLat = parseFloat(results.results[0].latitude)
+    let zipLong = parseFloat(results.results[0].longitude)
+    let zipLatRounded = roundAccurately(zipLat, 2)
+    let zipLongRounded = roundAccurately(zipLong, 2)
+  
+    console.log(zipName, zipLat, zipLong)
+    console.log(`latitude=${zipLat}`)
+    return fetch (`https://api.open-meteo.com/v1/forecast?latitude=${zipLatRounded}&longitude=${zipLongRounded}&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York`)
+    .then(resp => resp.json())
+    .then(function (weather){
+     let weatherDate = weather.daily.time[0];
+     let weatherCode = weather.daily.weathercode[0];
+     let tempMin = Math.round(weather.daily.temperature_2m_min[0]);
+     let tempMax = Math.round(weather.daily.temperature_2m_max[0]);
+    dateMap(weatherDate, weatherCode, tempMin, tempMax);
+    console.log(weather, weatherDate, weatherCode,tempMin, tempMax)
+     return weather, weatherDate, weatherCode
+    })
+  })
+});
+
+
+
+function roundAccurately (number, decimalPlaces){
+  return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
+}
 
 function dateMap(weatherDate, weatherCode, tempMin, tempMax){
   console.log("weatherApp Date:", weatherDate, "weatherCode:", weatherCode)
@@ -118,3 +141,73 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
   weatherDiv.appendChild(p2)
   }
 }
+
+
+
+function makeClothingCard(){
+  let cardDiv = document.getElementsByClassName("card")
+
+  let cardImageDiv = document.createElement("div")
+  cardImageDiv.className = "card-image"
+  cardDiv[0].appendChild(cardImageDiv)
+
+  let itemImage = document.createElement("img")
+  itemImage.src = "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]"
+  itemImage.className = "clothingImage"
+  cardImageDiv.appendChild(itemImage)
+  
+
+  let cardContentDiv = document.createElement("div")
+  cardContentDiv.className = "card-content"
+  cardImageDiv.append(cardContentDiv)
+
+  let itemInfo ={
+      Brand: "H&M",
+      Size: "small",
+      Color: "gray"
+    }
+
+  let itemKeys = Object.keys(itemInfo).forEach(key => {
+    Object.values(itemInfo).forEach(value => {
+      console.log("itemInfoValues:", value)
+    console.log("itemInfoKeys:", key)
+    return key, value
+  });
+
+  let itemValues = Object.values(itemInfo).forEach(value => {
+    console.log("itemInfoValues:", value)
+    return value
+  });
+  console.log(`${itemKeys}: ${itemValues}`)
+
+  let itemTitle = document.createElement("h5")
+  itemTitle.className = "itemtitle"
+  itemTitle.textContent = "Sweater"
+
+  let content = document.createElement("p")
+  cardContentDiv.append(itemTitle, content)
+
+  let ul = document.createElement("ul")
+  let li = document.createElement("li")
+  console.log(`${itemKeys}: ${itemValues}`)
+
+  content.appendChild(ul)
+  ul.appendChild(li)
+  
+
+})}
+
+// Object.keys(obj).forEach(key => {
+//   console.log(key, obj[key]);
+// });
+  
+
+// let eachDescription = item[key];
+//     let eachValue = item[value]
+//     
+//     
+
+makeClothingCard()
+
+
+
