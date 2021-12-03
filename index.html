@@ -19,10 +19,13 @@
         <a href="#!" class="brand-logo">Weather Closet</a>
         <ul class="right hide-on-med-and-down">
           <!-- <li><a class="waves-effect waves-light btn">Button</a></li> -->
-          <li><a id="closet" class="waves-effect waves-light btn">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
+          <li><a id="closet" class="btn">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
           <!-- <li><a class="waves-effect waves-light btn-large">Large Button</a></li> -->
         </ul>
       </div>
+  
+
+</div>
       <!-- <div class="nav-content">
         <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
           <i class="material-icons">add_box</i>
@@ -31,6 +34,87 @@
     </nav>
     </div>
   </div>
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <p>
+
+
+          <form action="#">
+            <label for="lang">Type of Clothing</label>
+            <select name="clothing" id="lang">
+            <option value="1">Top</option>
+            <option value="2">Sweater/Sweatshirt</option>
+            <option value="3">Shorts</option>
+            <option value="4">Pants</option>
+            <option value="5">Outerwear</option>
+            <option value="6">Shoes</option>
+            <option value="7">Hats</option>
+            <option value="8">Jewelry</option>
+            </select>
+          
+        <br/>
+        <input
+        type="text"
+        name="brand"
+        value=""
+        placeholder="Brand"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="image"
+        value=""
+        placeholder="Item's image URL..."
+        class="input-text"
+      />
+      <br/>
+      <input
+      type="text"
+      name="size"
+      value=""
+      placeholder="Size"
+      class="input-text"
+    />
+    <input
+      type="text"
+      name="color"
+      value=""
+      placeholder="Color"
+      class="input-text"
+    />
+      <select>
+        <option value="" disabled selected>Choose the season</option>
+        <option value="1">Winter</option>
+        <option value="2">Spring</option>
+        <option value="3">Summer</option>
+        <option value="4">Fall</option>
+        <option value="5">All Year</option>
+      </select>
+      <label>Season</label>
+
+      <br />
+      <input
+        type="submit"
+        name="submit"
+        value="Add Item"
+        class="submit"
+      />
+    </form>
+
+
+
+
+
+    </p>
+  </div>
+</div>
+
+
   <div class = "container">
     <div class="row">
       <form class="col s12">

@@ -148,25 +148,30 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
 }
 
 let itemInfo = [
-  {
-    ID: 01,
-    Type: "sweater",
-    Brand: "H&M",
-    Size: "small",
-    Color: "gray",
-    Season: "winter",
-    imageURL: "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]"
+  { ID: 01,
+    Type: "Sweater",
+    imageURL: "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+    details: {
+      Brand: "H&M",
+      Size: "small",
+      Color: "gray",
+      Season: "winter",
+    }
   },
-  {
-    ID: 02,
-    Type: "pants",
-    Brand: "Abercrombie & Fitch",
-    Size: "medium",
-    Color: "khaki",
-    Season: "all",
-    imageURL:"https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large"
+  { ID: 02,
+    Type: "Pants",
+    imageURL:"https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large",
+    details: {
+      Brand: "Abercrombie & Fitch",
+      Size: "Small",
+      Color: "Pink",
+      Season: "All",
+    }
   }
 ]
+
+
+
 
 function makeClothingCard(item){
   let cardDiv = document.getElementsByClassName("card")
@@ -186,34 +191,49 @@ function makeClothingCard(item){
 
   let itemTitle = document.createElement("h5")
   itemTitle.className = "item_title"
-  itemTitle.textContent = item.type
+  itemTitle.textContent = item.Type
   cardImageDiv.appendChild(itemTitle)
-  
-  for (let key in item) {
-    let li = document.createElement("li")
-    li.textContent = `${key}: ${item[key]}`
-    cardImageDiv.appendChild(li)
+
+
+  for (let key in item.details) {
+    let ul = document.createElement("ul")
+    ul.textContent = `${key}: ${item.details[key]}`
+    cardImageDiv.appendChild(ul)
+  }
   }
 
-  }
 
   itemInfo.forEach(item => {
     makeClothingCard(item)
   })
 
+// attempt at starting to think through randomization of cards and only displayin 1 from each Type
+
+  let pants = itemInfo.filter(function (findPants){
+    return findPants.Type === "Pants"
+  })
+  console.log(pants)
+
+  console.log(itemInfo.length)
 
 
-  // 
-
-// Object.keys(obj).forEach(key => {
-//   console.log(key, obj[key]);
-// });
-  
-
-// let eachDescription = item[key];
-//     let eachValue = item[value]
-//     
-//     
+////
 
 
 
+
+/// clicking on add to my closet button
+
+document.getElementById("closet").addEventListener("click", openForm)
+
+function openForm(){
+let modal = document.getElementById("myModal");
+  modal.style.display = "block";
+let close = document.getElementById("close")
+close.addEventListener("click", f => modal.style.display = "none")
+}
+
+function closeForm(){
+  let modal = document.getElementById("myModal");
+modal.style.display = "none"
+}
