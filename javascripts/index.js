@@ -147,29 +147,9 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
   }
 }
 
-let itemInfo = [
-  { ID: 01,
-    Type: "Sweater",
-    imageURL: "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-    details: {
-      Brand: "H&M",
-      Size: "small",
-      Color: "gray",
-      Season: "winter",
-    }
-  },
-  { ID: 02,
-    Type: "Pants",
-    imageURL:"https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large",
-    details: {
-      Brand: "Abercrombie & Fitch",
-      Size: "Small",
-      Color: "Pink",
-      Season: "All",
-    }
-  }
-]
-
+fetch (`http://localhost:3000/itemInfo`)
+  .then(resp => resp.json())
+  .then(items => items.forEach(item => {makeClothingCard(item)}))
 
 
 
@@ -203,18 +183,18 @@ function makeClothingCard(item){
   }
 
 
-  itemInfo.forEach(item => {
-    makeClothingCard(item)
-  })
+  
+
+ 
 
 // attempt at starting to think through randomization of cards and only displayin 1 from each Type
 
-  let pants = itemInfo.filter(function (findPants){
-    return findPants.Type === "Pants"
-  })
-  console.log(pants)
+  // let pants = itemInfo.filter(function (findPants){
+  //   return findPants.Type === "Pants"
+  // })
+  // console.log(pants)
 
-  console.log(itemInfo.length)
+  // console.log(itemInfo.length)
 
 
 ////
@@ -237,3 +217,59 @@ function closeForm(){
   let modal = document.getElementById("myModal");
 modal.style.display = "none"
 }
+
+
+//
+
+
+const addToCloset = document.querySelector('form')
+addToCloset.addEventListener('submit', event => {
+  // submit event detected
+  event.preventDefault();
+  console.log(event.target.type.value)
+  let newClothingitem = 
+  {     
+        Type: event.target.type.value,
+        imageURL: event.target.image.value,
+        details: {
+            Brand: event.target.brand.value,
+            Size: event.target.size.value,
+            Color: event.target.color.value,
+            Season: event.target.brand.value
+        }
+      }
+      addNewItem(newClothingitem)
+
+      function addNewItem(newClothingitem){
+        console.log(JSON.stringify(newClothingitem))
+        fetch ('http://localhost:3000/itemInfo', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body:JSON.stringify(newClothingitem)
+            })
+            .then(resp =>  resp.json())
+            .then(item => console.log(item))
+          }
+      }
+
+  )
+
+
+
+
+
+
+
+// function addNewToy(newToyObject){
+//   fetch('http://localhost:3000/toys', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body:JSON.stringify(newToyObject)
+//   })
+//   .then(resp =>  resp.json())
+//   // .then(toy => console.log(toy))
+// }

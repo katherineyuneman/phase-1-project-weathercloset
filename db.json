@@ -1,32 +1,48 @@
-{ "code":
-  {"0": "Clear sky",
-  "1": "Mainly clear, partly cloudy, and overcast",
-  "2": "Mainly clear, partly cloudy, and overcast",
-  "3": "Mainly clear, partly cloudy, and overcast",
-  "45": "Fog and depositing rime fog",
-  "48": "Fog and depositing rime fog",
-  "51": "Drizzle: Light, moderate, and dense intensity",
-  "53": "Drizzle: Light, moderate, and dense intensity",
-  "55": "Drizzle: Light, moderate, and dense intensity",
-  "56":	"Freezing Drizzle: Light and dense intensity",
-  "57":	"Freezing Drizzle: Light and dense intensity",
-  "61":	"Rain: Slight, moderate and heavy intensity",
-  "63":	"Rain: Slight, moderate and heavy intensity",
-  "65":	"Rain: Slight, moderate and heavy intensity",
-  "66":	"Freezing Rain: Light and heavy intensity",
-  "67":	"Freezing Rain: Light and heavy intensity",
-  "71": "Snow fall: Slight, moderate, and heavy intensity",
-  "73": "Snow fall: Slight, moderate, and heavy intensity",
-  "75":	"Snow fall: Slight, moderate, and heavy intensity",
-  "77":	"Snow grains",
-  "80": "Rain showers: Slight, moderate, and violent",
-  "81": "Rain showers: Slight, moderate, and violent",
-  "82": "Rain showers: Slight, moderate, and violent",
-  "85": "Snow showers slight and heavy",
-  "86": "Snow showers slight and heavy",
-  "95": "Thunderstorm: Slight or moderate",
-  "96": "Thunderstorm with slight and heavy hail",
-  "99": "Thunderstorm with slight and heavy hail"
-  }
+{
+  "itemInfo": [
+    {
+      "id": "1",
+      "Type": "Sweater",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "H&M",
+        "Size": "small",
+        "Color": "gray",
+        "Season": "winter"
+      }
+    },
+    {
+      "id": "2",
+      "Type": "Pants",
+      "imageURL": "https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large",
+      "details": {
+        "Brand": "Abercrombie & Fitch",
+        "Size": "Small",
+        "Color": "Pink",
+        "Season": "All"
+      }
+    },
+    {
+      "Type": "jacket",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F0f%2F60%2F0f6028282e80d5c2d9979aa4601a6ca511116a9f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "H&M",
+        "Size": "Small",
+        "Color": "Black",
+        "Season": "H&M"
+      },
+      "id": "56GskzV"
+    },
+    {
+      "Type": "jacket",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F0f%2F60%2F0f6028282e80d5c2d9979aa4601a6ca511116a9f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "H&M",
+        "Size": "Small",
+        "Color": "Black",
+        "Season": "H&M"
+      },
+      "id": "jKgLxDJ"
+    }
+  ]
 }
-

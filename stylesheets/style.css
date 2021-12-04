@@ -24,11 +24,6 @@ h4 {
   font-style: bold
 }
 
-.card{
-  width:250px;
-  height:375x;
-}
-
 
 /* .circle {
   border-radius: 50%;
@@ -52,7 +47,6 @@ h4 {
   text-align: center;
   font-size: 32px;
   border: 3px solid #000;
-  display: inline-block
 }
 .image{
   width: 100px;
@@ -69,6 +63,11 @@ h4 {
 
 #weatherspan{
   display: inline
+}
+
+.card{
+  width:250px;
+  height:375x;
 }
 
 .clothingImage{
@@ -91,6 +90,8 @@ h4 {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
+
 
 /* Modal Content/Box */
 .modal-content {
