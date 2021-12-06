@@ -65,7 +65,8 @@ h4 {
   display: inline
 }
 
-.card{
+.card,
+.random_card{
   width:250px;
   height:375x;
 }

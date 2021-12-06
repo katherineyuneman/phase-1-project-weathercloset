@@ -93,7 +93,8 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
      let tempMin = Math.round(weather.daily.temperature_2m_min[0]);
      let tempMax = Math.round(weather.daily.temperature_2m_max[0]);
     dateMap(weatherDate, weatherCode, tempMin, tempMax);
-    console.log(weather, weatherDate, weatherCode,tempMin, tempMax)
+    clothingTempLogic(tempMax)
+    console.log("weather deets:", weather, weatherDate, weatherCode,tempMin, tempMax)
      return weather, weatherDate, weatherCode
     })
   })
@@ -110,6 +111,114 @@ function displayCityName(zipCityName, zipState){
   p1.textContent = `${zipCityName}, ${zipState}`
   weatherSpan.appendChild(p1)
 }
+
+function clothingTempLogic(tempMax){
+  let weatherClothingType = []
+  if (tempMax <=50){
+    weatherClothingType.push("sweater", "jacket", "pants")
+  }
+  else if (tempMax <= 70){
+    weatherClothingType.push("pants", "shirt", "jacket")
+  }
+  else {
+    weatherClothingType.push("shorts", "t-shirt")
+  }
+  // randomize(weatherClothingType);
+  return console.log("type with temp max:",weatherClothingType, tempMax)
+}
+
+
+
+fetch (`http://localhost:3000/itemInfo`)
+.then(resp => resp.json())
+.then(items => displayClothingCard(items))
+
+function displayClothingCard(items){
+  let random = items.filter(findItem => findItem.Type === `sweater`)
+  let randomProperty = function (random){
+    let keys = Object.keys(random);
+    let displayRandom = random[keys[ keys.length * Math.random() << 0]];
+    return addRandomCard(displayRandom);
+  }
+  return randomProperty(random)
+}
+
+
+
+
+// function displayClothingCard(items, weatherClothingType){
+//   console.log("weatherClothingtype:", weatherClothingType)
+//   items.forEach(item => randomSelectionFromCategory(item,weatherClothingType))
+//   }
+
+//   function randomSelectionFromCategory(item, weatherClothingType){
+//     let random = item.filter(findItem => findItem.Type === `${weatherClothingType}`)
+//     console.log("random+clothingtypes:", random, `${weatherClothingType}`)
+//   }
+
+
+
+
+
+function addRandomCard(displayRandom){
+  let cardDiv = document.getElementsByClassName("random_card")
+  console.log(cardDiv)
+
+  let cardImageDiv = document.createElement("div")
+  cardImageDiv.className = "card-image"
+  cardDiv[0].appendChild(cardImageDiv)
+
+  let itemImage = document.createElement("img")
+  console.log("sweater:", displayRandom)
+  itemImage.src = displayRandom.imageURL
+  itemImage.className = "clothingImage"
+  cardImageDiv.appendChild(itemImage)
+
+  let cardContentDiv = document.createElement("div")
+  cardContentDiv.className = "card-content"
+  cardImageDiv.append(cardContentDiv)
+
+  let itemTitle = document.createElement("h5")
+  itemTitle.className = "item_title"
+  itemTitle.textContent = displayRandom.Type
+  cardImageDiv.appendChild(itemTitle)
+
+
+  for (let key in displayRandom.details) {
+    let ul = document.createElement("ul")
+    ul.textContent = `${key}: ${displayRandom.details[key]}`
+    cardImageDiv.appendChild(ul)
+  }
+  }
+
+////
+
+
+
+
+
+
+  
+
+  // function randomSelectionFromCategory(randomCategory){
+  //   let keys = Object.keys(randomCategory);
+  //   console.log(keys)
+    // let displayRandom = randomCategory[keys[ keys.length * Math.random() << 0]];
+    // return addRandomCard(displayRandom);
+  // }
+  // let random = weatherClothingType.filter(findItem => findItem.Type ===`${weatherClothingType.value}`)
+  // console.log("random+clothing types:", random, `${weatherClothingType.value}`);
+  // let randomProperty = function (random) {
+  //   var keys = Object.keys(random);
+  //    let displayRandom = random[keys[ keys.length * Math.random() << 0]];
+  //   return addRandomCard(displayRandom);
+     
+  // }; 
+  // ;
+  // return randomProperty(random)
+// }
+
+
 
 function dateMap(weatherDate, weatherCode, tempMin, tempMax){
   console.log("weatherApp Date:", weatherDate, "weatherCode:", weatherCode)
@@ -183,22 +292,8 @@ function makeClothingCard(item){
   }
 
 
-  
-
- 
-
-// attempt at starting to think through randomization of cards and only displayin 1 from each Type
-
-  // let pants = itemInfo.filter(function (findPants){
-  //   return findPants.Type === "Pants"
-  // })
-  // console.log(pants)
-
-  // console.log(itemInfo.length)
-
 
 ////
-
 
 
 
@@ -232,10 +327,10 @@ addToCloset.addEventListener('submit', event => {
         Type: event.target.type.value,
         imageURL: event.target.image.value,
         details: {
-            Brand: event.target.brand.value,
-            Size: event.target.size.value,
-            Color: event.target.color.value,
-            Season: event.target.brand.value
+            Brand: (event.target.brand.value).toLowerCase(),
+            Size: (event.target.size.value).toLowerCase(),
+            Color: (event.target.color.value).toLowerCase(),
+            Season: (event.target.brand.value).toLowerCase()
         }
       }
       addNewItem(newClothingitem)
@@ -259,17 +354,3 @@ addToCloset.addEventListener('submit', event => {
 
 
 
-
-
-
-// function addNewToy(newToyObject){
-//   fetch('http://localhost:3000/toys', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body:JSON.stringify(newToyObject)
-//   })
-//   .then(resp =>  resp.json())
-//   // .then(toy => console.log(toy))
-// }

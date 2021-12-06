@@ -2,10 +2,10 @@
   "itemInfo": [
     {
       "id": "1",
-      "Type": "Sweater",
+      "Type": "sweater",
       "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6f%2F4a%2F6f4abe5923896aa340c4f866573c29c0be407118.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
       "details": {
-        "Brand": "H&M",
+        "Brand": "h&m",
         "Size": "small",
         "Color": "gray",
         "Season": "winter"
@@ -13,36 +13,47 @@
     },
     {
       "id": "2",
-      "Type": "Pants",
+      "Type": "pants",
       "imageURL": "https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large",
       "details": {
-        "Brand": "Abercrombie & Fitch",
-        "Size": "Small",
-        "Color": "Pink",
-        "Season": "All"
+        "Brand": "abercrombie & fitch",
+        "Size": "amall",
+        "Color": "pink",
+        "Season": "all"
       }
     },
     {
       "Type": "jacket",
       "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F0f%2F60%2F0f6028282e80d5c2d9979aa4601a6ca511116a9f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
       "details": {
-        "Brand": "H&M",
-        "Size": "Small",
-        "Color": "Black",
-        "Season": "H&M"
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "black",
+        "Season": "winter"
       },
       "id": "56GskzV"
     },
     {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F0f%2F60%2F0f6028282e80d5c2d9979aa4601a6ca511116a9f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "Type": "sweater",
+      "imageURL": "https://www.gap.com/webcontent/0027/427/231/cn27427231.jpg",
       "details": {
-        "Brand": "H&M",
-        "Size": "Small",
-        "Color": "Black",
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "white",
         "Season": "H&M"
       },
-      "id": "jKgLxDJ"
+      "id": "u9z87_F"
+    },
+    {
+      "Type": "sweater",
+      "imageURL": "https://www.gap.com/webcontent/0027/427/231/cn27427231.jpg",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "white",
+        "Season": "H&M"
+      },
+      "id": "UzunNFJ"
     }
   ]
 }
