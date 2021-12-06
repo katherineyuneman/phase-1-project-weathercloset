@@ -45,15 +45,26 @@
       "id": "u9z87_F"
     },
     {
-      "Type": "sweater",
-      "imageURL": "https://www.gap.com/webcontent/0027/427/231/cn27427231.jpg",
+      "Type": "t-shirt",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6b%2F02%2F6b02b156f6cf6ca585e3b678f8d9431aceb5c218.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
       "details": {
         "Brand": "h&m",
-        "Size": "small",
+        "Size": "large",
         "Color": "white",
-        "Season": "H&M"
+        "Season": "h&m"
       },
-      "id": "UzunNFJ"
+      "id": "bS5wGI5"
+    },
+    {
+      "Type": "shorts",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7b%2F8b%2F7b8bc7549c0011fc254eee6e8e0cd84d5658d17f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_shorts_jeans%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "gap",
+        "Size": "medium",
+        "Color": "denim",
+        "Season": "gap"
+      },
+      "id": "u8CK_58"
     }
   ]
 }

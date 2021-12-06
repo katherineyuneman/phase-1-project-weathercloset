@@ -123,46 +123,35 @@ function clothingTempLogic(tempMax){
   else {
     weatherClothingType.push("shorts", "t-shirt")
   }
-  // randomize(weatherClothingType);
+  whatToWearToday(weatherClothingType);
   return console.log("type with temp max:",weatherClothingType, tempMax)
 }
 
 
+function whatToWearToday(weatherClothingType){
+  fetch (`http://localhost:3000/itemInfo`)
+  .then(resp => resp.json())
+  .then(items => displayClothingCard(items, weatherClothingType))
 
-fetch (`http://localhost:3000/itemInfo`)
-.then(resp => resp.json())
-.then(items => displayClothingCard(items))
-
-function displayClothingCard(items){
-  let random = items.filter(findItem => findItem.Type === `sweater`)
-  let randomProperty = function (random){
-    let keys = Object.keys(random);
-    let displayRandom = random[keys[ keys.length * Math.random() << 0]];
-    return addRandomCard(displayRandom);
+    function displayClothingCard(items, weatherClothingType){
+      weatherClothingType.forEach(item => findType(item))
+      function findType (item){
+        let random = items.filter(findItem => findItem.Type === `${item}`)
+        console.log("random items:", random)
+        let randomProperty = function (random){
+          let keys = Object.keys(random);
+        let displayRandom = random[keys[ keys.length * Math.random() << 0]];
+        return addRandomCard(displayRandom);
+      }
+      return randomProperty(random)
+      } 
   }
-  return randomProperty(random)
 }
-
-
-
-
-// function displayClothingCard(items, weatherClothingType){
-//   console.log("weatherClothingtype:", weatherClothingType)
-//   items.forEach(item => randomSelectionFromCategory(item,weatherClothingType))
-//   }
-
-//   function randomSelectionFromCategory(item, weatherClothingType){
-//     let random = item.filter(findItem => findItem.Type === `${weatherClothingType}`)
-//     console.log("random+clothingtypes:", random, `${weatherClothingType}`)
-//   }
-
-
-
 
 
 function addRandomCard(displayRandom){
   let cardDiv = document.getElementsByClassName("random_card")
-  console.log(cardDiv)
+  // console.log(cardDiv)
 
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
@@ -192,32 +181,6 @@ function addRandomCard(displayRandom){
   }
 
 ////
-
-
-
-
-
-
-  
-
-  // function randomSelectionFromCategory(randomCategory){
-  //   let keys = Object.keys(randomCategory);
-  //   console.log(keys)
-    // let displayRandom = randomCategory[keys[ keys.length * Math.random() << 0]];
-    // return addRandomCard(displayRandom);
-  // }
-  // let random = weatherClothingType.filter(findItem => findItem.Type ===`${weatherClothingType.value}`)
-  // console.log("random+clothing types:", random, `${weatherClothingType.value}`);
-  // let randomProperty = function (random) {
-  //   var keys = Object.keys(random);
-  //    let displayRandom = random[keys[ keys.length * Math.random() << 0]];
-  //   return addRandomCard(displayRandom);
-     
-  // }; 
-  // ;
-  // return randomProperty(random)
-// }
-
 
 
 function dateMap(weatherDate, weatherCode, tempMin, tempMax){
