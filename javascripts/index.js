@@ -14,10 +14,21 @@ let yyyy = today.getFullYear();
     } 
 today = yyyy+'-'+mm+'-'+dd
 
+
+
 // zipcode search and weather details //
 
 document.getElementById("submit-btn").addEventListener("click", function(event){
   event.preventDefault()
+
+
+
+  let weatherSpan = document.getElementById("weatherspan")
+  let randomCardDiv = document.getElementsByClassName("random_card")
+  removeAllChildNodes(weatherSpan);
+  removeAllChildNodes(randomCardDiv[0]);
+  
+
   let inputZipCode = document.getElementById("input_text").value
   return fetch (`https://geocoding-api.open-meteo.com/v1/search?name=${inputZipCode}&count=1`)
   .then(resp => resp.json())
@@ -49,6 +60,12 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
 });
 
         //* weather detail functions
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+    }
+  }
 
 function roundAccurately (number, decimalPlaces){
   return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
@@ -86,7 +103,7 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
 
   let p2 = document.createElement("p");
   p2.textContent =  `Weather forecast: ${weatherCodeDescription}. Today's temperature will be a low of ${tempMin} and a high of ${tempMax}.`;;
-  weatherDiv.appendChild(p2)
+  weatherSpan.appendChild(p2)
   }
 }
 
@@ -96,7 +113,7 @@ function clothingTempLogic(tempMax){
     weatherClothingType.push("sweater", "jacket", "pants")
   }
   else if (tempMax <= 70){
-    weatherClothingType.push("pants", "shirt", "jacket")
+    weatherClothingType.push("pants", "shirt")
   }
   else {
     weatherClothingType.push("shorts", "t-shirt")
@@ -158,6 +175,13 @@ function addRandomCard(displayRandom){
   }
 
 
+  // const form = document.getElementById('form');
+  // const log = document.getElementById('log');
+  // form.addEventListener('reset', logReset);
+
+
+
+
  // my closet detail cards //
 
 
@@ -199,21 +223,21 @@ function makeClothingCard(item){
 document.getElementById("closet").addEventListener("click", openForm)
 
 function openForm(){
-let modal = document.getElementById("myModal");
-  modal.style.display = "block";
+let closetForm = document.getElementById("addToClosetForm");
+  closetForm.style.display = "block";
 let close = document.getElementById("close")
-close.addEventListener("click", f => modal.style.display = "none")
+close.addEventListener("click", f => closetForm.style.display = "none")
 }
 
 function closeForm(){
-  let modal = document.getElementById("myModal");
-modal.style.display = "none"
+  let closetForm = document.getElementById("addToClosetForm");
+closetForm.style.display = "none"
 }
 
 const addToCloset = document.querySelector('form')
 addToCloset.addEventListener('submit', event => {
   // submit event detected
-  event.preventDefault();
+  // event.preventDefault();
   console.log(event.target.type.value)
   let newClothingitem = 
   {     
@@ -240,6 +264,9 @@ addToCloset.addEventListener('submit', event => {
             .then(resp =>  resp.json())
             .then(item => console.log(item))
           }
+
+      let form = document.getElementById("addToClosetForm");
+      form.style.display = "none"
       }
 
   )

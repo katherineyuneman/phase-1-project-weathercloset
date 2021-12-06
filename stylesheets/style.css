@@ -65,7 +65,11 @@ h4 {
   display: inline
 }
 
-.card,
+.card{
+  width:250px;
+  height:375x;
+}
+
 .random_card{
   width:250px;
   height:375x;
@@ -79,7 +83,7 @@ h4 {
 
 
 /* The Modal (background) */
-.modal {
+.closet_form {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */

@@ -76,6 +76,39 @@
         "Season": "gap"
       },
       "id": "0ODtXdj"
+    },
+    {
+      "Type": "pants",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F47%2F05%2F47054eab2e9cb6ab46a2ba2ef8ce0f2440f3b003.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "6",
+        "Color": "denim",
+        "Season": "h&m"
+      },
+      "id": "uJN9nuE"
+    },
+    {
+      "Type": "jacket",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F65%2F72%2F6572d073387918eb6effcdc01011a80f680de2fe.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_jacketscoats_jackets%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "denim",
+        "Season": "h&m"
+      },
+      "id": "1dMX1I0"
+    },
+    {
+      "Type": "pants",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ffd%2F59%2Ffd59777ca40e48e2cf745664517c194d405fd8d7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "gap",
+        "Size": "4",
+        "Color": "brown leather",
+        "Season": "gap"
+      },
+      "id": "ACBJRsX"
     }
   ]
 }
