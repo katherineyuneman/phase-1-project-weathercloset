@@ -17,7 +17,7 @@
       "imageURL": "https://img.abercrombie.com/is/image/anf/KIC_110-1309-0413-630_prod1?policy=product-large",
       "details": {
         "Brand": "abercrombie & fitch",
-        "Size": "amall",
+        "Size": "small",
         "Color": "pink",
         "Season": "all"
       }
@@ -65,6 +65,17 @@
         "Season": "gap"
       },
       "id": "u8CK_58"
+    },
+    {
+      "Type": "shirt",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F55%2F72%2F55720aa397858b34c1cc60a93b3c1087bfc1e995.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_tops_longsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "gap",
+        "Size": "medium",
+        "Color": "gray",
+        "Season": "gap"
+      },
+      "id": "0ODtXdj"
     }
   ]
 }

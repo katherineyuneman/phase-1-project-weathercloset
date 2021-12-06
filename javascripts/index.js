@@ -1,5 +1,4 @@
-
-/// get today's date
+// get today's date to match date in weatherAPI //
 
 let today = new Date();
 let dd = today.getDate();
@@ -15,60 +14,7 @@ let yyyy = today.getFullYear();
     } 
 today = yyyy+'-'+mm+'-'+dd
 
-
-const d = new Date();
-
-const weekday = new Array(7);
-weekday[0] = "Sunday";
-weekday[1] = "Monday";
-weekday[2] = "Tuesday";
-weekday[3] = "Wednesday";
-weekday[4] = "Thursday";
-weekday[5] = "Friday";
-weekday[6] = "Saturday";
-
-let day = weekday[d.getDay()];
-console.log(day)
-
-
-// const d = new Date();
-// let day = d.getDay();
-// console.log("today's date:", today)
-
-//code for weather object
-let code = 
-  {0: "Clear sky",
-  1: "Mainly clear, partly cloudy, and overcast",
-  2: "Mainly clear, partly cloudy, and overcast",
-  3: "Mainly clear, partly cloudy, and overcast",
-  45: "Fog and depositing rime fog",
-  48: "Fog and depositing rime fog",
-  51: "Drizzle: Light, moderate, and dense intensity",
-  53: "Drizzle: Light, moderate, and dense intensity",
-  55: "Drizzle: Light, moderate, and dense intensity",
-  56:	"Freezing Drizzle: Light and dense intensity",
-  57:	"Freezing Drizzle: Light and dense intensity",
-  61:	"Rain: Slight, moderate and heavy intensity",
-  63:	"Rain: Slight, moderate and heavy intensity",
-  65:	"Rain: Slight, moderate and heavy intensity",
-  66:	"Freezing Rain: Light and heavy intensity",
-  67:	"Freezing Rain: Light and heavy intensity",
-  71: "Snow fall: Slight, moderate, and heavy intensity",
-  73: "Snow fall: Slight, moderate, and heavy intensity",
-  75:	"Snow fall: Slight, moderate, and heavy intensity",
-  77:	"Snow grains",
-  80: "Rain showers: Slight, moderate, and violent",
-  81: "Rain showers: Slight, moderate, and violent",
-  82: "Rain showers: Slight, moderate, and violent",
-  85: "Snow showers slight and heavy",
-  86: "Snow showers slight and heavy",
-  95: "Thunderstorm: Slight or moderate",
-  96: "Thunderstorm with slight and heavy hail",
-  99: "Thunderstorm with slight and heavy hail"
-  }
-
-///
-
+// zipcode search and weather details //
 
 document.getElementById("submit-btn").addEventListener("click", function(event){
   event.preventDefault()
@@ -76,30 +22,33 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
   return fetch (`https://geocoding-api.open-meteo.com/v1/search?name=${inputZipCode}&count=1`)
   .then(resp => resp.json())
   .then(function (results){
+
     let zipCityName = results.results[0].name
     let zipLat = parseFloat(results.results[0].latitude)
     let zipLong = parseFloat(results.results[0].longitude)
     let zipLatRounded = roundAccurately(zipLat, 2)
     let zipLongRounded = roundAccurately(zipLong, 2)
-    let zipState = results.results[0].admin1
+    let zipState = results.results[0].admin1;
 
     displayCityName(zipCityName, zipState)
-    console.log(`latitude=${zipLat}`)
+    // console.log(`latitude=${zipLat}`)
     return fetch (`https://api.open-meteo.com/v1/forecast?latitude=${zipLatRounded}&longitude=${zipLongRounded}&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York`)
-    .then(resp => resp.json())
-    .then(function (weather){
-     let weatherDate = weather.daily.time[0];
-     let weatherCode = weather.daily.weathercode[0];
-     let tempMin = Math.round(weather.daily.temperature_2m_min[0]);
-     let tempMax = Math.round(weather.daily.temperature_2m_max[0]);
-    dateMap(weatherDate, weatherCode, tempMin, tempMax);
-    clothingTempLogic(tempMax)
-    console.log("weather deets:", weather, weatherDate, weatherCode,tempMin, tempMax)
-     return weather, weatherDate, weatherCode
+      .then(resp => resp.json())
+      .then(function (weather){
+        let weatherDate = weather.daily.time[0];
+        let weatherCode = weather.daily.weathercode[0];
+        let tempMin = Math.round(weather.daily.temperature_2m_min[0]);
+        let tempMax = Math.round(weather.daily.temperature_2m_max[0]);
+        
+        dateMap(weatherDate, weatherCode, tempMin, tempMax);
+        clothingTempLogic(tempMax)
+        console.log("weather deets:", weather, weatherDate, weatherCode,tempMin, tempMax)
+        return weather, weatherDate, weatherCode
     })
   })
 });
 
+        //* weather detail functions
 
 function roundAccurately (number, decimalPlaces){
   return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
@@ -110,6 +59,35 @@ function displayCityName(zipCityName, zipState){
   let p1 = document.createElement("p");
   p1.textContent = `${zipCityName}, ${zipState}`
   weatherSpan.appendChild(p1)
+}
+
+function dateMap(weatherDate, weatherCode, tempMin, tempMax){
+  console.log("weatherApp Date:", weatherDate, "weatherCode:", weatherCode)
+  if (today === weatherDate && `${weatherCode}` in code){
+    let weatherCodeDescription = code[`${weatherCode}`]
+    console.log("weatherCode description:", weatherCodeDescription);
+  
+  let weatherDiv = document.getElementById("weather")
+  let weatherSpan = document.getElementById("weatherspan")
+
+  let tempIcons = document.createElement("p");
+  tempIcons.className = "circle";
+  tempIcons.textContent = `${tempMax}°F`;
+  weatherSpan.appendChild(tempIcons);
+
+  let weatherIconCircle = document.createElement("p");
+  weatherIconCircle.className = "circle";
+  weatherSpan.appendChild(weatherIconCircle);
+
+  let weatherIconImage = document.createElement("img")
+  weatherIconImage.src = "https://cdn1.iconfinder.com/data/icons/weather-281/64/cloudy-512.png";
+  weatherIconImage.className = "image"
+  weatherIconCircle.appendChild(weatherIconImage);
+
+  let p2 = document.createElement("p");
+  p2.textContent =  `Weather forecast: ${weatherCodeDescription}. Today's temperature will be a low of ${tempMin} and a high of ${tempMax}.`;;
+  weatherDiv.appendChild(p2)
+  }
 }
 
 function clothingTempLogic(tempMax){
@@ -144,7 +122,7 @@ function whatToWearToday(weatherClothingType){
         return addRandomCard(displayRandom);
       }
       return randomProperty(random)
-      } 
+    } 
   }
 }
 
@@ -172,7 +150,6 @@ function addRandomCard(displayRandom){
   itemTitle.textContent = displayRandom.Type
   cardImageDiv.appendChild(itemTitle)
 
-
   for (let key in displayRandom.details) {
     let ul = document.createElement("ul")
     ul.textContent = `${key}: ${displayRandom.details[key]}`
@@ -180,50 +157,13 @@ function addRandomCard(displayRandom){
   }
   }
 
-////
 
+ // my closet detail cards //
 
-function dateMap(weatherDate, weatherCode, tempMin, tempMax){
-  console.log("weatherApp Date:", weatherDate, "weatherCode:", weatherCode)
-  if (today === weatherDate && `${weatherCode}` in code){
-    let weatherCodeDescription = code[`${weatherCode}`]
-    console.log("weatherCode description:", weatherCodeDescription);
-  
-  let weatherDiv = document.getElementById("weather")
-  let weatherSpan = document.getElementById("weatherspan")
-
-
-  let tempIcons = document.createElement("p");
-  tempIcons.className = "circle";
-  tempIcons.textContent = `${tempMax}°F`;
-  weatherSpan.appendChild(tempIcons);
-
-  let weatherIconCircle = document.createElement("p");
-  weatherIconCircle.className = "circle";
-  // weatherIcon.textContent = `${tempMin}°F`;
-  // weatherIconCircle.textContent = "."
-  weatherSpan.appendChild(weatherIconCircle);
-
-  let weatherIconImage = document.createElement("img")
-  weatherIconImage.src = "https://cdn1.iconfinder.com/data/icons/weather-281/64/cloudy-512.png";
-  weatherIconImage.className = "image"
-  // weatherIconImage.style.width = '65px';
-  // weatherIconImage.style.height = '65px';
-  // weatherIconImage.style.verticalAlign= 'center'
-  weatherIconCircle.appendChild(weatherIconImage);
-
-
-  let p2 = document.createElement("p");
-  p2.textContent =  `Weather forecast: ${weatherCodeDescription}. Today's temperature will be a low of ${tempMin} and a high of ${tempMax}.`;;
-  weatherDiv.appendChild(p2)
-  }
-}
 
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
   .then(items => items.forEach(item => {makeClothingCard(item)}))
-
-
 
 function makeClothingCard(item){
   let cardDiv = document.getElementsByClassName("card")
@@ -246,7 +186,6 @@ function makeClothingCard(item){
   itemTitle.textContent = item.Type
   cardImageDiv.appendChild(itemTitle)
 
-
   for (let key in item.details) {
     let ul = document.createElement("ul")
     ul.textContent = `${key}: ${item.details[key]}`
@@ -255,12 +194,7 @@ function makeClothingCard(item){
   }
 
 
-
-////
-
-
-
-/// clicking on add to my closet button
+// add to my closet button + form //
 
 document.getElementById("closet").addEventListener("click", openForm)
 
@@ -276,10 +210,6 @@ function closeForm(){
 modal.style.display = "none"
 }
 
-
-//
-
-
 const addToCloset = document.querySelector('form')
 addToCloset.addEventListener('submit', event => {
   // submit event detected
@@ -287,7 +217,7 @@ addToCloset.addEventListener('submit', event => {
   console.log(event.target.type.value)
   let newClothingitem = 
   {     
-        Type: event.target.type.value,
+        Type: event.target.type.value.toLowerCase(),
         imageURL: event.target.image.value,
         details: {
             Brand: (event.target.brand.value).toLowerCase(),
@@ -313,6 +243,43 @@ addToCloset.addEventListener('submit', event => {
       }
 
   )
+
+
+
+//code for weather object
+let code = 
+{0: "Clear sky",
+1: "Mainly clear, partly cloudy, and overcast",
+2: "Mainly clear, partly cloudy, and overcast",
+3: "Mainly clear, partly cloudy, and overcast",
+45: "Fog and depositing rime fog",
+48: "Fog and depositing rime fog",
+51: "Drizzle: Light, moderate, and dense intensity",
+53: "Drizzle: Light, moderate, and dense intensity",
+55: "Drizzle: Light, moderate, and dense intensity",
+56:	"Freezing Drizzle: Light and dense intensity",
+57:	"Freezing Drizzle: Light and dense intensity",
+61:	"Rain: Slight, moderate and heavy intensity",
+63:	"Rain: Slight, moderate and heavy intensity",
+65:	"Rain: Slight, moderate and heavy intensity",
+66:	"Freezing Rain: Light and heavy intensity",
+67:	"Freezing Rain: Light and heavy intensity",
+71: "Snow fall: Slight, moderate, and heavy intensity",
+73: "Snow fall: Slight, moderate, and heavy intensity",
+75:	"Snow fall: Slight, moderate, and heavy intensity",
+77:	"Snow grains",
+80: "Rain showers: Slight, moderate, and violent",
+81: "Rain showers: Slight, moderate, and violent",
+82: "Rain showers: Slight, moderate, and violent",
+85: "Snow showers slight and heavy",
+86: "Snow showers slight and heavy",
+95: "Thunderstorm: Slight or moderate",
+96: "Thunderstorm with slight and heavy hail",
+99: "Thunderstorm with slight and heavy hail"
+}
+
+///
+
 
 
 
