@@ -267,6 +267,7 @@ addToCloset.addEventListener('submit', event => {
 
       let form = document.getElementById("addToClosetForm");
       form.style.display = "none"
+      alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
       }
 
   )
