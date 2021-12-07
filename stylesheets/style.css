@@ -5,6 +5,12 @@ h4 {
   font: 25px;
   font-family: 'Playfair Display', serif;
 }
+
+h3 {
+  font: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
 .brand-logo {
   color: #000000;
   font: 32px;
@@ -21,7 +27,7 @@ h4 {
 
 #closet, p{
   font-family: 'Montserrat', sans-serif;
-  font-style: bold
+  font-style: bold;
 }
 
 
@@ -39,22 +45,25 @@ h4 {
 
 
 .circle {
-  width: 120px;
-  height: 120px;
-  line-height: 120px;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
   border-radius: 50%;
   padding-bottom: 0;
   text-align: center;
-  font-size: 32px;
-  border: 3px solid #000;
+  font-size: 20px;
+  color: white;
+  /* border: 3px solid #000; */
+  background-color: rgb(106, 0, 116);
 }
 .image{
-  width: 100px;
+  width: 65px;
   height: auto;
   line-height: auto;
   border-radius: 50%;
   padding-bottom: 0;
   vertical-align: center;
+  
 }
 .temp-desc {
   text-align: center;
@@ -62,23 +71,81 @@ h4 {
 }
 
 #weatherspan{
-  display: inline
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+  /* border: black solid; */
+  
 }
 
-.card{
-  width:250px;
-  height:375x;
+.temperatures{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+  /* border: black solid; */
+  
 }
+
+
+.column {
+  float: left;
+  width: 75%;
+  /* border: black solid; */
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+  /* justify-content: center; */
+  justify-content:baseline;
+  padding: 0px;
+}
+
+/* Clear floats after the columns */
+/* .weatherSpan:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+.card-container{
+  /* width:250px;
+  height:375x; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border:#000000 solid; */
+}
+
+.random-card-container{
+  /* width:250px;
+  height:350px; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border:#000000 solid; */
+} */
+
 
 .random_card{
-  width:250px;
-  height:375x;
+  width:187.5px;
+  height:262.5px;
 }
 
 .clothingImage{
-  width:250px;
-  height:250;
+  width:187.5px;
+  height:262.5px;
 }
+
+.card-image{
+  padding: 12px;
+  /* border: black solid; */
+  box-shadow: 10px 5px 10px rgb(185, 185, 185);
+  margin-top: 10px
+  }
+
 
 
 
@@ -120,4 +187,28 @@ h4 {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+/* My Closet Collapsible */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+.collapsibleCloset {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }

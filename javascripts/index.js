@@ -22,11 +22,12 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
   event.preventDefault()
 
 
-
+  
   let weatherSpan = document.getElementById("weatherspan")
-  let randomCardDiv = document.getElementsByClassName("random_card")
+  let randomCardDiv = document.getElementsByClassName("random-card-container")
   removeAllChildNodes(weatherSpan);
   removeAllChildNodes(randomCardDiv[0]);
+
   
 
   let inputZipCode = document.getElementById("input_text").value
@@ -84,26 +85,42 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
     let weatherCodeDescription = code[`${weatherCode}`]
     console.log("weatherCode description:", weatherCodeDescription);
   
-  let weatherDiv = document.getElementById("weather")
+  // let weatherDiv = document.getElementById("weather")
   let weatherSpan = document.getElementById("weatherspan")
 
+
+  let temperatureDiv = document.createElement("div")
+  temperatureDiv.className = "temperatures"
+  weatherSpan.appendChild(temperatureDiv)
+
+
+  let col1 = document.createElement("div")
+  col1.className = "column"
+  let col2 = document.createElement("div")
+  col2.className = "column"
+  temperatureDiv.append(col1, col2);
+
+  
   let tempIcons = document.createElement("p");
   tempIcons.className = "circle";
   tempIcons.textContent = `${tempMax}°F`;
-  weatherSpan.appendChild(tempIcons);
+  col2.appendChild(tempIcons);
 
   let weatherIconCircle = document.createElement("p");
   weatherIconCircle.className = "circle";
-  weatherSpan.appendChild(weatherIconCircle);
+  col2.appendChild(weatherIconCircle);
 
   let weatherIconImage = document.createElement("img")
   weatherIconImage.src = "https://cdn1.iconfinder.com/data/icons/weather-281/64/cloudy-512.png";
   weatherIconImage.className = "image"
   weatherIconCircle.appendChild(weatherIconImage);
 
+  let h3 = document.createElement("h3")
+  h3.textContent = "What should I wear today?"
+  col1.appendChild(h3)
   let p2 = document.createElement("p");
   p2.textContent =  `Weather forecast: ${weatherCodeDescription}. Today's temperature will be a low of ${tempMin} and a high of ${tempMax}.`;;
-  weatherSpan.appendChild(p2)
+  col1.appendChild(p2)
   }
 }
 
@@ -145,7 +162,8 @@ function whatToWearToday(weatherClothingType){
 
 
 function addRandomCard(displayRandom){
-  let cardDiv = document.getElementsByClassName("random_card")
+  /////if (!displayRandom){}
+  let cardDiv = document.getElementsByClassName("random-card-container")
   // console.log(cardDiv)
 
   let cardImageDiv = document.createElement("div")
@@ -175,13 +193,6 @@ function addRandomCard(displayRandom){
   }
 
 
-  // const form = document.getElementById('form');
-  // const log = document.getElementById('log');
-  // form.addEventListener('reset', logReset);
-
-
-
-
  // my closet detail cards //
 
 
@@ -190,7 +201,7 @@ fetch (`http://localhost:3000/itemInfo`)
   .then(items => items.forEach(item => {makeClothingCard(item)}))
 
 function makeClothingCard(item){
-  let cardDiv = document.getElementsByClassName("card")
+  let cardDiv = document.getElementsByClassName("card-container")
 
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
@@ -216,6 +227,25 @@ function makeClothingCard(item){
     cardImageDiv.appendChild(ul)
   }
   }
+
+
+// display my closet //
+
+let collapsible = document.getElementsByClassName("collapsible");
+let i;
+
+for (i = 0; i < collapsible.length; i++) {
+  collapsible[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
 
 
 // add to my closet button + form //
@@ -271,6 +301,9 @@ addToCloset.addEventListener('submit', event => {
       }
 
   )
+
+
+
 
 
 

@@ -67,17 +67,6 @@
       "id": "u8CK_58"
     },
     {
-      "Type": "shirt",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F55%2F72%2F55720aa397858b34c1cc60a93b3c1087bfc1e995.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_tops_longsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "gap",
-        "Size": "medium",
-        "Color": "gray",
-        "Season": "gap"
-      },
-      "id": "0ODtXdj"
-    },
-    {
       "Type": "pants",
       "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F47%2F05%2F47054eab2e9cb6ab46a2ba2ef8ce0f2440f3b003.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
       "details": {
@@ -109,6 +98,17 @@
         "Season": "gap"
       },
       "id": "bwVwqig"
+    },
+    {
+      "Type": "jacket",
+      "imageURL": "https://www.gap.com/webcontent/0027/427/231/cn27427231.jpg",
+      "details": {
+        "Brand": "hm",
+        "Size": "small",
+        "Color": "black",
+        "Season": "hm"
+      },
+      "id": "fj6Dwan"
     }
   ]
 }

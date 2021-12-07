@@ -15,10 +15,10 @@
 <body>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper black">
         <a href="#!" class="brand-logo">Weather Closet</a>
         <ul class="right hide-on-med-and-down">
-          <li><a id="closet" class="btn">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
+          <li><a id="closet" class="btn pink darken-4">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
         </ul>
       </div>
   
@@ -123,8 +123,7 @@
           <div class="input-field col s6">
             <input id="input_text" type="text" data-length="5">
             <label for="input_text">zip code</label>
-            <button class="btn waves-effect waves-light" id="submit-btn" type="submit" name="action">What should I wear today?
-              <!-- <i class="material-icons right">send</i> -->
+            <button class="btn waves-effect waves-light pink darken-4" id="submit-btn" type="submit" name="action">GET THE WEATHER
             </button>
           </div>
         </div>
@@ -136,34 +135,40 @@
    
     <div id="weather">
       <span id="weatherspan">
+        <!-- <div class = "temperatures">
 
-      
-      <!-- <h3 class="circle">85°F
-        <ul class="temp-desc">high</ul>
-      </h3> -->
+        </div> -->
+
   </div>
     </div>
     
     <div class = "container">
      
       <!-- <h4>What should I wear today?</h4> -->
-      <div class="random_card">
-
+      <!-- <div class="row"> -->
+      <div class="random-card-container">
 
       </div>
-          
+    </div>
         
     </div>
   </span>
 
-    <div class = "container">
+
+
+  <button type="button" class="collapsible" id="closet">OPEN MY CLOSET</button>
+  
+  <div class="collapsibleCloset">
      
       <h4>My Closet</h4>
-
-        <div class="card">
+        <div class="card-container">
           
         </div>
-    </div>
+  </div>
+
+
+
+    
 
 
   </div>
