@@ -198,6 +198,7 @@ function addRandomCard(displayRandom){
   }
 }
 
+
  // my closet detail cards //
 )
 
@@ -272,6 +273,7 @@ closetForm.style.display = "none"
 const addToCloset = document.querySelector('form')
 addToCloset.addEventListener('submit', event => {
   event.preventDefault();
+  
   console.log(event.target)
   let closetForm = document.getElementById("addToClosetForm");
       closetForm.style.display = "none"
@@ -294,15 +296,21 @@ addToCloset.addEventListener('submit', event => {
         console.log("HELLO, I make it to this point")
         console.log("stringified:", JSON.stringify(newClothingitem))
         debugger;
-        fetch ('http://localhost:3000/itemInfo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(newClothingitem)
-      })
-      .then(resp =>  resp.json())
-      .then(item => console.log(item))
+        let abortController = new AbortController();
+        
+        let configObj = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(newClothingitem),
+          signal : abortController.signal
+        }
+        window.onbeforeunload = function(e) { abortController.abort(); };
+        fetch ('http://localhost:3000/itemInfo', configObj)
+        .then(resp =>  resp.json())
+        .then(item => console.log(item))
     }
 
         function addNewItemDOM(newClothingitem){
