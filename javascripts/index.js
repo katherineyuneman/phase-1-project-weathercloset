@@ -296,22 +296,41 @@ addToCloset.addEventListener('submit', event => {
         console.log("HELLO, I make it to this point")
         console.log("stringified:", JSON.stringify(newClothingitem))
         debugger;
-        let abortController = new AbortController();
-        
-        let configObj = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(newClothingitem),
-          signal : abortController.signal
-        }
-        window.onbeforeunload = function(e) { abortController.abort(); };
-        fetch ('http://localhost:3000/itemInfo', configObj)
-        .then(resp =>  resp.json())
-        .then(item => console.log(item))
+        fetch ('http://localhost:3000/itemInfo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(newClothingitem)
+      })
+      .then(resp =>  resp.json())
+      .then(item => console.log(item))
     }
+
+
+    //// alt code below with the AbortController
+
+    // function addNewItemDB(newClothingitem){
+    //   console.log("HELLO, I make it to this point")
+    //   console.log("stringified:", JSON.stringify(newClothingitem))
+    //   debugger;
+    //   let abortController = new AbortController();
+      
+    //   let configObj = {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify(newClothingitem),
+    //     signal : abortController.signal
+    //   }
+    //   window.onbeforeunload = function(e) { abortController.abort(); };
+    //   fetch ('http://localhost:3000/itemInfo', configObj)
+    //   .then(resp =>  resp.json())
+    //   .then(item => console.log(item))
+    // }
+    //
 
         function addNewItemDOM(newClothingitem){
           let newCardDiv = document.getElementsByClassName("new-item")
