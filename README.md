@@ -21,7 +21,7 @@ https://open-meteo.com/en/docs/geocoding-api
 Weather API
 https://open-meteo.com/en/docs
 
-## Resourcess
+## Resources
 The following articles were used to help assist rounding of the latitude/longitude needed to input into the weather API and how to randomize an array of objects.
 
 Rounding to a specific number of decimal points

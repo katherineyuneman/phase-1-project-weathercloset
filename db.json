@@ -111,125 +111,15 @@
       "id": "Q7KedgH"
     },
     {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7b%2F8b%2F7b8bc7549c0011fc254eee6e8e0cd84d5658d17f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_shorts_jeans%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "Type": "shirt",
+      "imageURL": "https://www.gap.com/webcontent/0027/913/028/cn27913028.jpg",
       "details": {
-        "Brand": "h&m",
-        "Size": "test 5",
-        "Color": "test 5",
-        "Season": "h&m"
-      },
-      "id": "KmJ9jxf"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
+        "Brand": "the gap",
         "Size": "small",
-        "Color": "dfgg",
-        "Season": "h&m"
+        "Color": "beige",
+        "Season": "the gap"
       },
-      "id": "0dSSuke"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "large",
-        "Color": "katherine",
-        "Season": "h&m"
-      },
-      "id": "-nSy0uM"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "4",
-        "Color": "denim",
-        "Season": "h&m"
-      },
-      "id": "RF7cNtq"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "dgdfg",
-        "Color": "brown leather",
-        "Season": "h&m"
-      },
-      "id": "TkUNcMp"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "dgdfg",
-        "Color": "brown leather",
-        "Season": "h&m"
-      },
-      "id": "hk-Ftie"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "jacket",
-        "Size": "large",
-        "Color": "denim",
-        "Season": "jacket"
-      },
-      "id": "eqYHr_X"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "4",
-        "Color": "brown leather",
-        "Season": "h&m"
-      },
-      "id": "-e1KQSx"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "medium",
-        "Color": "denim",
-        "Season": "h&m"
-      },
-      "id": "wO4u0pC"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "medium",
-        "Color": "denim",
-        "Season": "h&m"
-      },
-      "id": "oUwSUCd"
-    },
-    {
-      "Type": "jacket",
-      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fee%2Fa0%2Feea057c1d1a340f27fec7472943e2f396c1e8e54.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
-      "details": {
-        "Brand": "h&m",
-        "Size": "dgdfg",
-        "Color": "dfgg",
-        "Season": "h&m"
-      },
-      "id": "K-fbnAP"
+      "id": "Vp9pYVN"
     }
   ]
 }

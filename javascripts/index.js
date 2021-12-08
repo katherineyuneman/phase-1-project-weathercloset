@@ -14,7 +14,7 @@ let yyyy = today.getFullYear();
     } 
 today = yyyy+'-'+mm+'-'+dd
 
-
+document.addEventListener("DOMContentLoaded", () => {
 
 // zipcode search and weather details //
 
@@ -42,8 +42,13 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
     let zipLongRounded = roundAccurately(zipLong, 2)
     let zipState = results.results[0].admin1;
 
+    function roundAccurately (number, decimalPlaces){
+      return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
+    }
+
+
     displayCityName(zipCityName, zipState)
-    // console.log(`latitude=${zipLat}`)
+    
     return fetch (`https://api.open-meteo.com/v1/forecast?latitude=${zipLatRounded}&longitude=${zipLongRounded}&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York`)
       .then(resp => resp.json())
       .then(function (weather){
@@ -59,6 +64,8 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
     })
   })
 });
+// console.log(`latitude=${zipLat}`)
+
 
         //* weather detail functions
 
@@ -164,14 +171,12 @@ function whatToWearToday(weatherClothingType){
 function addRandomCard(displayRandom){
   /////if (!displayRandom){}
   let cardDiv = document.getElementsByClassName("random-card-container")
-  // console.log(cardDiv)
 
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
   cardDiv[0].appendChild(cardImageDiv)
 
   let itemImage = document.createElement("img")
-  console.log("sweater:", displayRandom)
   itemImage.src = displayRandom.imageURL
   itemImage.className = "clothingImage"
   cardImageDiv.appendChild(itemImage)
@@ -191,10 +196,10 @@ function addRandomCard(displayRandom){
     cardImageDiv.appendChild(ul)
   }
   }
-
+}
 
  // my closet detail cards //
-
+)
 
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
