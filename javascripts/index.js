@@ -229,7 +229,7 @@ function makeClothingCard(item){
   }
 
 
-// display my closet //
+// display my FULL closet //
 
 let collapsible = document.getElementsByClassName("collapsible");
 let i;
@@ -266,9 +266,10 @@ closetForm.style.display = "none"
 
 const addToCloset = document.querySelector('form')
 addToCloset.addEventListener('submit', event => {
-  // submit event detected
-  // event.preventDefault();
-  console.log(event.target.type.value)
+  event.preventDefault();
+  console.log(event.target)
+  let closetForm = document.getElementById("addToClosetForm");
+      closetForm.style.display = "none"
   let newClothingitem = 
   {     
         Type: event.target.type.value.toLowerCase(),
@@ -280,29 +281,63 @@ addToCloset.addEventListener('submit', event => {
             Season: (event.target.brand.value).toLowerCase()
         }
       }
-      addNewItem(newClothingitem)
 
-      function addNewItem(newClothingitem){
-        console.log(JSON.stringify(newClothingitem))
+      addNewItemDOM(newClothingitem)
+      addNewItemDB(newClothingitem)
+
+      function addNewItemDB(newClothingitem){
+        console.log("HELLO, I make it to this point")
+        console.log("stringified:", JSON.stringify(newClothingitem))
+        debugger;
         fetch ('http://localhost:3000/itemInfo', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body:JSON.stringify(newClothingitem)
-            })
-            .then(resp =>  resp.json())
-            .then(item => console.log(item))
-          }
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(newClothingitem)
+      })
+      .then(resp =>  resp.json())
+      .then(item => console.log(item))
+    }
 
-      let form = document.getElementById("addToClosetForm");
-      form.style.display = "none"
-      alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
+        function addNewItemDOM(newClothingitem){
+          let newCardDiv = document.getElementsByClassName("new-item")
+          console.log("newcarddiv:",newCardDiv)
+  
+          let cardImageDiv = document.createElement("div")
+          cardImageDiv.className = "card-image"
+          newCardDiv[0].appendChild(cardImageDiv)
+        
+          let itemImage = document.createElement("img")
+          itemImage.src = newClothingitem.imageURL
+          itemImage.className = "clothingImage"
+          cardImageDiv.appendChild(itemImage)
+        
+          let cardContentDiv = document.createElement("div")
+          cardContentDiv.className = "card-content"
+          cardImageDiv.append(cardContentDiv)
+        
+          let itemTitle = document.createElement("h5")
+          itemTitle.className = "item_title"
+          itemTitle.textContent = newClothingitem.Type
+          cardImageDiv.appendChild(itemTitle)
+        
+          for (let key in newClothingitem.details) {
+            let ul = document.createElement("ul")
+            ul.textContent = `${key}: ${newClothingitem.details[key]}`
+            cardImageDiv.appendChild(ul)
+          }
+        }
+        
+        
+      
+
+      // alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
       }
 
   )
 
-
+    
 
 
 
