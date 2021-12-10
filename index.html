@@ -15,10 +15,10 @@
 <body>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper black">
-        <a href="#!" class="brand-logo">Weather Closet</a>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo" id="text">Weather Closet</a>
         <ul class="right hide-on-med-and-down">
-          <li><a id="closet" class="btn pink darken-4">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
+          <li><a id="closet" class="btn">ADD TO MY CLOSET <i class="material-icons right">add_box</i></a></li>
         </ul>
       </div>
   
@@ -108,7 +108,7 @@
           <div class="input-field col s6">
             <input id="input_text" type="text" data-length="5">
             <label for="input_text">zip code</label>
-            <button class="btn waves-effect waves-light pink darken-4" id="submit-btn" type="submit" name="action">GET THE WEATHER
+            <button class="btn waves-effect waves-light pink darken-3" id="submit-btn" type="submit" name="action">GET THE WEATHER
             </button>
           </div>
         </div>
@@ -144,7 +144,7 @@
 
 
 
-  <button type="button" class="collapsible" id="closet">OPEN MY CLOSET</button>
+  <button type="button" class="collapsible" id="closet">OPEN MY CLOSET <i class="material-icons right">add_box</i> </button>
   
   <div class="collapsibleCloset">
      
@@ -154,11 +154,6 @@
         </div>
   </div>
 
-
-
-    
-
-
   </div>
 
 
@@ -167,6 +162,8 @@
 
 
 <!-- <i class="material-icons">ac_unit</i> -->
+
+  <!-- <script src="javascripts/form.js"></script> -->
   <script src="javascripts/index.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Compiled and minified JavaScript -->

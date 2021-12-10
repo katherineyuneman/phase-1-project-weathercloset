@@ -22,7 +22,6 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
   event.preventDefault()
 
 
-  
   let weatherSpan = document.getElementById("weatherspan")
   let randomCardDiv = document.getElementsByClassName("random-card-container")
   removeAllChildNodes(weatherSpan);
@@ -41,10 +40,6 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
     let zipLatRounded = roundAccurately(zipLat, 2)
     let zipLongRounded = roundAccurately(zipLong, 2)
     let zipState = results.results[0].admin1;
-
-    function roundAccurately (number, decimalPlaces){
-      return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
-    }
 
 
     displayCityName(zipCityName, zipState)
@@ -86,7 +81,8 @@ function displayCityName(zipCityName, zipState){
   weatherSpan.appendChild(p1)
 }
 
-function dateMap(weatherDate, weatherCode, tempMin, tempMax){
+
+function dateMap(weatherDate, weatherCode, tempMin, tempMax, zipCityName, zipState){
   console.log("weatherApp Date:", weatherDate, "weatherCode:", weatherCode)
   if (today === weatherDate && `${weatherCode}` in code){
     let weatherCodeDescription = code[`${weatherCode}`]
@@ -113,14 +109,14 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
   tempIcons.textContent = `${tempMax}°F`;
   col2.appendChild(tempIcons);
 
-  let weatherIconCircle = document.createElement("p");
-  weatherIconCircle.className = "circle";
-  col2.appendChild(weatherIconCircle);
+  // let weatherIconCircle = document.createElement("p");
+  // weatherIconCircle.className = "circle";
+  // col1.appendChild(weatherIconCircle);
 
-  let weatherIconImage = document.createElement("img")
-  weatherIconImage.src = "https://cdn1.iconfinder.com/data/icons/weather-281/64/cloudy-512.png";
-  weatherIconImage.className = "image"
-  weatherIconCircle.appendChild(weatherIconImage);
+  // let weatherIconImage = document.createElement("img")
+  // weatherIconImage.src = "https://cdn1.iconfinder.com/data/icons/weather-281/64/cloudy-512.png";
+  // weatherIconImage.className = "image"
+  // weatherIconCircle.appendChild(weatherIconImage);
 
   let h3 = document.createElement("h3")
   h3.textContent = "What should I wear today?"
@@ -196,11 +192,12 @@ function addRandomCard(displayRandom){
     cardImageDiv.appendChild(ul)
   }
   }
-}
-
+})
 
  // my closet detail cards //
-)
+
+
+document.addEventListener("DOMContentLoaded", () => {
 
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
@@ -252,7 +249,7 @@ for (i = 0; i < collapsible.length; i++) {
   });
 }
 
-
+});
 
 // add to my closet button + form //
 
@@ -270,10 +267,14 @@ function closeForm(){
 closetForm.style.display = "none"
 }
 
+
+
 const addToCloset = document.querySelector('form')
+
 addToCloset.addEventListener('submit', event => {
+
   event.preventDefault();
-  
+  debugger;
   console.log(event.target)
   let closetForm = document.getElementById("addToClosetForm");
       closetForm.style.display = "none"
@@ -291,21 +292,6 @@ addToCloset.addEventListener('submit', event => {
 
       addNewItemDOM(newClothingitem)
       addNewItemDB(newClothingitem)
-
-      function addNewItemDB(newClothingitem){
-        console.log("HELLO, I make it to this point")
-        console.log("stringified:", JSON.stringify(newClothingitem))
-        debugger;
-        fetch ('http://localhost:3000/itemInfo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(newClothingitem)
-      })
-      .then(resp =>  resp.json())
-      .then(item => console.log(item))
-    }
 
 
     //// alt code below with the AbortController
@@ -332,34 +318,7 @@ addToCloset.addEventListener('submit', event => {
     // }
     //
 
-        function addNewItemDOM(newClothingitem){
-          let newCardDiv = document.getElementsByClassName("new-item")
-          console.log("newcarddiv:",newCardDiv)
-  
-          let cardImageDiv = document.createElement("div")
-          cardImageDiv.className = "card-image"
-          newCardDiv[0].appendChild(cardImageDiv)
         
-          let itemImage = document.createElement("img")
-          itemImage.src = newClothingitem.imageURL
-          itemImage.className = "clothingImage"
-          cardImageDiv.appendChild(itemImage)
-        
-          let cardContentDiv = document.createElement("div")
-          cardContentDiv.className = "card-content"
-          cardImageDiv.append(cardContentDiv)
-        
-          let itemTitle = document.createElement("h5")
-          itemTitle.className = "item_title"
-          itemTitle.textContent = newClothingitem.Type
-          cardImageDiv.appendChild(itemTitle)
-        
-          for (let key in newClothingitem.details) {
-            let ul = document.createElement("ul")
-            ul.textContent = `${key}: ${newClothingitem.details[key]}`
-            cardImageDiv.appendChild(ul)
-          }
-        }
         
         
       
@@ -368,8 +327,50 @@ addToCloset.addEventListener('submit', event => {
       }
 
   )
+  function addNewItemDB(newClothingitem){
+    console.log("HELLO, I make it to this point")
+    console.log("stringified:", JSON.stringify(newClothingitem))
+    // debugger;
+    fetch ('http://localhost:3000/itemInfo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(newClothingitem)
+  })
+  .then(resp =>  resp.json())
+  .then(item => console.log(item))
+}
 
-    
+
+function addNewItemDOM(newClothingitem){
+  let newCardDiv = document.getElementsByClassName("new-item")
+  console.log("newcarddiv:",newCardDiv)
+
+  let cardImageDiv = document.createElement("div")
+  cardImageDiv.className = "card-image"
+  newCardDiv[0].appendChild(cardImageDiv)
+
+  let itemImage = document.createElement("img")
+  itemImage.src = newClothingitem.imageURL
+  itemImage.className = "clothingImage"
+  cardImageDiv.appendChild(itemImage)
+
+  let cardContentDiv = document.createElement("div")
+  cardContentDiv.className = "card-content"
+  cardImageDiv.append(cardContentDiv)
+
+  let itemTitle = document.createElement("h5")
+  itemTitle.className = "item_title"
+  itemTitle.textContent = newClothingitem.Type
+  cardImageDiv.appendChild(itemTitle)
+
+  for (let key in newClothingitem.details) {
+    let ul = document.createElement("ul")
+    ul.textContent = `${key}: ${newClothingitem.details[key]}`
+    cardImageDiv.appendChild(ul)
+  }
+}
 
 
 
