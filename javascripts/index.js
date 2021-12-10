@@ -203,33 +203,7 @@ fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
   .then(items => items.forEach(item => {makeClothingCard(item)}))
 
-function makeClothingCard(item){
-  let cardDiv = document.getElementsByClassName("card-container")
 
-  let cardImageDiv = document.createElement("div")
-  cardImageDiv.className = "card-image"
-  cardDiv[0].appendChild(cardImageDiv)
-
-  let itemImage = document.createElement("img")
-  itemImage.src = item.imageURL
-  itemImage.className = "clothingImage"
-  cardImageDiv.appendChild(itemImage)
-
-  let cardContentDiv = document.createElement("div")
-  cardContentDiv.className = "card-content"
-  cardImageDiv.append(cardContentDiv)
-
-  let itemTitle = document.createElement("h5")
-  itemTitle.className = "item_title"
-  itemTitle.textContent = item.Type
-  cardImageDiv.appendChild(itemTitle)
-
-  for (let key in item.details) {
-    let ul = document.createElement("ul")
-    ul.textContent = `${key}: ${item.details[key]}`
-    cardImageDiv.appendChild(ul)
-  }
-  }
 
 
 // display my FULL closet //
@@ -290,37 +264,10 @@ addToCloset.addEventListener('submit', event => {
         }
       }
 
-      addNewItemDOM(newClothingitem)
+      // addNewItemDOM(newClothingitem)
+      makeClothingCard(newClothingitem)
       addNewItemDB(newClothingitem)
-
-
-    //// alt code below with the AbortController
-
-    // function addNewItemDB(newClothingitem){
-    //   console.log("HELLO, I make it to this point")
-    //   console.log("stringified:", JSON.stringify(newClothingitem))
-    //   debugger;
-    //   let abortController = new AbortController();
       
-    //   let configObj = {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Accept": "application/json"
-    //     },
-    //     body: JSON.stringify(newClothingitem),
-    //     signal : abortController.signal
-    //   }
-    //   window.onbeforeunload = function(e) { abortController.abort(); };
-    //   fetch ('http://localhost:3000/itemInfo', configObj)
-    //   .then(resp =>  resp.json())
-    //   .then(item => console.log(item))
-    // }
-    //
-
-        
-        
-        
       
 
       // alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
@@ -330,7 +277,7 @@ addToCloset.addEventListener('submit', event => {
   function addNewItemDB(newClothingitem){
     console.log("HELLO, I make it to this point")
     console.log("stringified:", JSON.stringify(newClothingitem))
-    // debugger;
+    debugger;
     fetch ('http://localhost:3000/itemInfo', {
     method: 'POST',
     headers: {
@@ -343,16 +290,44 @@ addToCloset.addEventListener('submit', event => {
 }
 
 
-function addNewItemDOM(newClothingitem){
-  let newCardDiv = document.getElementsByClassName("new-item")
-  console.log("newcarddiv:",newCardDiv)
+// function addNewItemDOM(newClothingitem){
+//   let newCardDiv = document.getElementsByClassName("new-item")
+//   console.log("newcarddiv:",newCardDiv)
+
+//   let cardImageDiv = document.createElement("div")
+//   cardImageDiv.className = "card-image"
+//   newCardDiv[0].appendChild(cardImageDiv)
+
+//   let itemImage = document.createElement("img")
+//   itemImage.src = newClothingitem.imageURL
+//   itemImage.className = "clothingImage"
+//   cardImageDiv.appendChild(itemImage)
+
+//   let cardContentDiv = document.createElement("div")
+//   cardContentDiv.className = "card-content"
+//   cardImageDiv.append(cardContentDiv)
+
+//   let itemTitle = document.createElement("h5")
+//   itemTitle.className = "item_title"
+//   itemTitle.textContent = newClothingitem.Type
+//   cardImageDiv.appendChild(itemTitle)
+
+//   for (let key in newClothingitem.details) {
+//     let ul = document.createElement("ul")
+//     ul.textContent = `${key}: ${newClothingitem.details[key]}`
+//     cardImageDiv.appendChild(ul)
+//   }
+// }
+
+function makeClothingCard(item){
+  let cardDiv = document.getElementsByClassName("card-container")
 
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
-  newCardDiv[0].appendChild(cardImageDiv)
+  cardDiv[0].appendChild(cardImageDiv)
 
   let itemImage = document.createElement("img")
-  itemImage.src = newClothingitem.imageURL
+  itemImage.src = item.imageURL
   itemImage.className = "clothingImage"
   cardImageDiv.appendChild(itemImage)
 
@@ -362,17 +337,15 @@ function addNewItemDOM(newClothingitem){
 
   let itemTitle = document.createElement("h5")
   itemTitle.className = "item_title"
-  itemTitle.textContent = newClothingitem.Type
+  itemTitle.textContent = item.Type
   cardImageDiv.appendChild(itemTitle)
 
-  for (let key in newClothingitem.details) {
+  for (let key in item.details) {
     let ul = document.createElement("ul")
-    ul.textContent = `${key}: ${newClothingitem.details[key]}`
+    ul.textContent = `${key}: ${item.details[key]}`
     cardImageDiv.appendChild(ul)
   }
-}
-
-
+  }
 
 
 //code for weather object
