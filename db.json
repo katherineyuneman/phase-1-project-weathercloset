@@ -40,7 +40,7 @@
         "Brand": "h&m",
         "Size": "small",
         "Color": "white",
-        "Season": "H&M"
+        "Season": "winter"
       },
       "id": "u9z87_F"
     },
@@ -51,7 +51,7 @@
         "Brand": "h&m",
         "Size": "large",
         "Color": "white",
-        "Season": "h&m"
+        "Season": "summer"
       },
       "id": "bS5wGI5"
     },
@@ -62,7 +62,7 @@
         "Brand": "gap",
         "Size": "medium",
         "Color": "denim",
-        "Season": "gap"
+        "Season": "summer"
       },
       "id": "u8CK_58"
     },
@@ -73,7 +73,7 @@
         "Brand": "h&m",
         "Size": "6",
         "Color": "denim",
-        "Season": "h&m"
+        "Season": "all"
       },
       "id": "uJN9nuE"
     },
@@ -84,7 +84,7 @@
         "Brand": "h&m",
         "Size": "small",
         "Color": "denim",
-        "Season": "h&m"
+        "Season": "winter"
       },
       "id": "1dMX1I0"
     },
@@ -95,7 +95,7 @@
         "Brand": "gap",
         "Size": "4",
         "Color": "brown leather",
-        "Season": "gap"
+        "Season": "all"
       },
       "id": "bwVwqig"
     },
@@ -106,7 +106,7 @@
         "Brand": "h&m",
         "Size": "dgdfg",
         "Color": "blueeeeee",
-        "Season": "h&m"
+        "Season": "fall"
       },
       "id": "Q7KedgH"
     },
@@ -117,7 +117,7 @@
         "Brand": "the gap",
         "Size": "small",
         "Color": "beige",
-        "Season": "the gap"
+        "Season": "all"
       },
       "id": "Vp9pYVN"
     },
@@ -128,9 +128,42 @@
         "Brand": "banana republic",
         "Size": "small",
         "Color": "pink",
-        "Season": "banana republic"
+        "Season": "winter"
       },
       "id": "ZpwQuGV"
+    },
+    {
+      "Type": "sweater",
+      "imageURL": "https://www.gap.com/webcontent/0027/786/792/cn27786792.jpg",
+      "details": {
+        "Brand": "gap",
+        "Size": "small",
+        "Color": "purple",
+        "Season": "winter"
+      },
+      "id": "YeCyYXj"
+    },
+    {
+      "Type": "pants",
+      "imageURL": "https://www.gap.com/webcontent/0028/181/699/cn28181699.jpg",
+      "details": {
+        "Brand": "gap",
+        "Size": "6",
+        "Color": "denim",
+        "Season": "all"
+      },
+      "id": "xXXNDqL"
+    },
+    {
+      "Type": "sweater",
+      "imageURL": "https://www.gap.com/webcontent/0027/744/955/cn27744955.jpg",
+      "details": {
+        "Brand": "gap",
+        "Size": "small",
+        "Color": "black",
+        "Season": "winter"
+      },
+      "id": "Y3sn0OY"
     }
   ]
 }

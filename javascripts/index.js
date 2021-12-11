@@ -63,8 +63,8 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
-    }
   }
+}
 
 function roundAccurately (number, decimalPlaces){
   return (parseFloat(Math.round(number + "e" + decimalPlaces)+ "e-" + decimalPlaces))
@@ -149,177 +149,6 @@ function displayClothingCard(items, weatherClothingType){
 }
 
 
-
-
-// function addRandomCard(displayRandom){
-//   let cardDiv = document.getElementsByClassName("random-card-container")
-
-//   let cardImageDiv = document.createElement("div")
-//   cardImageDiv.className = "card-image"
-//   cardDiv[0].appendChild(cardImageDiv)
-
-//   let itemImage = document.createElement("img")
-//   itemImage.src = displayRandom.imageURL
-//   itemImage.className = "clothingImage"
-//   cardImageDiv.appendChild(itemImage)
-
-//   let cardContentDiv = document.createElement("div")
-//   cardContentDiv.className = "card-content"
-//   cardImageDiv.append(cardContentDiv)
-
-//   let itemTitle = document.createElement("h5")
-//   itemTitle.className = "item_title"
-//   itemTitle.textContent = displayRandom.Type
-//   cardImageDiv.appendChild(itemTitle)
-
-//   for (let key in displayRandom.details) {
-//     let ul = document.createElement("ul")
-//     ul.textContent = `${key}: ${displayRandom.details[key]}`
-//     cardImageDiv.appendChild(ul)
-//   }
-// }
-
- // my closet detail cards //
-
-
-
-
-fetch (`http://localhost:3000/itemInfo`)
-  .then(resp => resp.json())
-  .then(items => items.forEach(item => {makeClothingCard(item)}))
-
-function makeClothingCard(item){
-  let closetClassName = "card-container"
-  createClothingCard(item, closetClassName)
-}
-
-// display my FULL closet //
-
-let collapsible = document.getElementsByClassName("collapsible");
-let i;
-  for (i = 0; i < collapsible.length; i++) {
-    collapsible[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      let content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      }  
-      else {
-      content.style.display = "block";
-      }
-    });
-  };
-
-// add to my closet button + form //
-
-document.getElementById("closet").addEventListener("click", openForm)
-
-function openForm(){
-  let closetForm = document.getElementById("addToClosetForm");
-  closetForm.style.display = "block";
-  let close = document.getElementById("close")
-  close.addEventListener("click", f => closetForm.style.display = "none")
-}
-
-function closeForm(){
-  let closetForm = document.getElementById("addToClosetForm");
-  closetForm.style.display = "none"
-}
-
-
-let addToCloset = document.querySelector('form')
-
-addToCloset.addEventListener('submit', event => {
-  event.preventDefault();
-  console.log(event.target)
-  let closetForm = document.getElementById("addToClosetForm");
-  closetForm.style.display = "none"
-  let newClothingitem = 
-        {     
-        Type: event.target.type.value.toLowerCase(),
-        imageURL: event.target.image.value,
-        details: {
-            Brand: (event.target.brand.value).toLowerCase(),
-            Size: (event.target.size.value).toLowerCase(),
-            Color: (event.target.color.value).toLowerCase(),
-            Season: (event.target.brand.value).toLowerCase()
-                }
-        }
-      makeClothingCard(newClothingitem)
-      addNewItemDB(newClothingitem)
-      alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
-})
-
-function addNewItemDB(newClothingitem){
-    fetch ('http://localhost:3000/itemInfo', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body:JSON.stringify(newClothingitem)
-  })
-  .then(resp =>  resp.json())
-  .then(item => console.log(item))
-}
-
-function createClothingCard(clothingItem, className){
-  let cardDiv = document.getElementsByClassName(`${className}`)
-
-  let cardImageDiv = document.createElement("div")
-  cardImageDiv.className = "card-image"
-  cardDiv[0].appendChild(cardImageDiv)
-
-  let itemImage = document.createElement("img")
-  itemImage.src = clothingItem.imageURL
-  itemImage.className = "clothingImage"
-  cardImageDiv.appendChild(itemImage)
-
-  let cardContentDiv = document.createElement("div")
-  cardContentDiv.className = "card-content"
-  cardImageDiv.append(cardContentDiv)
-
-  let itemTitle = document.createElement("h5")
-  itemTitle.className = "item_title"
-  itemTitle.textContent = clothingItem.Type
-  cardImageDiv.appendChild(itemTitle)
-
-  for (let key in clothingItem.details) {
-    let ul = document.createElement("ul")
-    ul.textContent = `${key}: ${clothingItem.details[key]}`
-    cardImageDiv.appendChild(ul)
-  }
-}
-
-
-// function makeClothingCard(item){
-//   let cardDiv = document.getElementsByClassName("card-container")
-
-//   let cardImageDiv = document.createElement("div")
-//   cardImageDiv.className = "card-image"
-//   cardDiv[0].appendChild(cardImageDiv)
-
-//   let itemImage = document.createElement("img")
-//   itemImage.src = item.imageURL
-//   itemImage.className = "clothingImage"
-//   cardImageDiv.appendChild(itemImage)
-
-//   let cardContentDiv = document.createElement("div")
-//   cardContentDiv.className = "card-content"
-//   cardImageDiv.append(cardContentDiv)
-
-//   let itemTitle = document.createElement("h5")
-//   itemTitle.className = "item_title"
-//   itemTitle.textContent = item.Type
-//   cardImageDiv.appendChild(itemTitle)
-
-//   for (let key in item.details) {
-//     let ul = document.createElement("ul")
-//     ul.textContent = `${key}: ${item.details[key]}`
-//     cardImageDiv.appendChild(ul)
-//   }
-// }
-
-
 //code for weather object
 let code = 
 {
@@ -352,7 +181,3 @@ let code =
 96: "Thunderstorm with slight and heavy hail",
 99: "Thunderstorm with slight and heavy hail"
 }
-
-
-
-
