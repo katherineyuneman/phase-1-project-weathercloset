@@ -1,0 +1,61 @@
+document.getElementById("closet").addEventListener("click", openForm)
+
+function openForm(){
+let closetForm = document.getElementById("addToClosetForm");
+  closetForm.style.display = "block";
+let close = document.getElementById("close")
+close.addEventListener("click", f => closetForm.style.display = "none")
+}
+
+function closeForm(){
+  let closetForm = document.getElementById("addToClosetForm");
+closetForm.style.display = "none"
+}
+
+
+
+const addToCloset = document.querySelector('form')
+
+addToCloset.addEventListener('submit', event => {
+
+  event.preventDefault();
+  debugger;
+  console.log(event.target)
+  let closetForm = document.getElementById("addToClosetForm");
+      closetForm.style.display = "none"
+  let newClothingitem = 
+  {     
+        Type: event.target.type.value.toLowerCase(),
+        imageURL: event.target.image.value,
+        details: {
+            Brand: (event.target.brand.value).toLowerCase(),
+            Size: (event.target.size.value).toLowerCase(),
+            Color: (event.target.color.value).toLowerCase(),
+            Season: (event.target.brand.value).toLowerCase()
+        }
+      }
+
+      // addNewItemDOM(newClothingitem)
+      makeClothingCard(newClothingitem)
+      addNewItemDB(newClothingitem)
+      
+      
+
+      // alert(`Thank you for adding ${event.target.type.value.toLowerCase()} to your closet`)
+      }
+
+  )
+  function addNewItemDB(newClothingitem){
+    console.log("HELLO, I make it to this point")
+    console.log("stringified:", JSON.stringify(newClothingitem))
+    debugger;
+    fetch ('http://localhost:3000/itemInfo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(newClothingitem)
+  })
+  .then(resp =>  resp.json())
+  .then(item => console.log(item))
+}
