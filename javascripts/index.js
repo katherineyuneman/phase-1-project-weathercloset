@@ -1,3 +1,37 @@
+//code for weather object
+let code = 
+{
+0 : "Clear sky",
+1: "Mainly clear, partly cloudy, and overcast",
+2: "Mainly clear, partly cloudy, and overcast",
+3: "Mainly clear, partly cloudy, and overcast",
+45: "Fog and depositing rime fog",
+48: "Fog and depositing rime fog",
+51: "Drizzle: Light, moderate, and dense intensity",
+53: "Drizzle: Light, moderate, and dense intensity",
+55: "Drizzle: Light, moderate, and dense intensity",
+56:	"Freezing Drizzle: Light and dense intensity",
+57:	"Freezing Drizzle: Light and dense intensity",
+61:	"Rain: Slight, moderate and heavy intensity",
+63:	"Rain: Slight, moderate and heavy intensity",
+65:	"Rain: Slight, moderate and heavy intensity",
+66:	"Freezing Rain: Light and heavy intensity",
+67:	"Freezing Rain: Light and heavy intensity",
+71: "Snow fall: Slight, moderate, and heavy intensity",
+73: "Snow fall: Slight, moderate, and heavy intensity",
+75:	"Snow fall: Slight, moderate, and heavy intensity",
+77:	"Snow grains",
+80: "Rain showers: Slight, moderate, and violent",
+81: "Rain showers: Slight, moderate, and violent",
+82: "Rain showers: Slight, moderate, and violent",
+85: "Snow showers slight and heavy",
+86: "Snow showers slight and heavy",
+95: "Thunderstorm: Slight or moderate",
+96: "Thunderstorm with slight and heavy hail",
+99: "Thunderstorm with slight and heavy hail"
+}
+
+
 // get today's date to match date in weatherAPI //
 
 let today = new Date();
@@ -96,6 +130,7 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
 
     let tempIcons = document.createElement("p");
     tempIcons.className = "circle";
+    tempIcons.id="circle"
     tempIcons.textContent = `${tempMax}°F`;
     col2.appendChild(tempIcons);
 
@@ -105,8 +140,19 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
     let p2 = document.createElement("p");
     p2.textContent =  `Weather forecast: ${weatherCodeDescription}. Today's temperature will be a low of ${tempMin} and a high of ${tempMax}.`;;
     col1.appendChild(p2)
+
+    document.getElementById("circle").addEventListener("mouseover", function(event){
+      event.target.style.background= "black"
+      tempIcons.textContent = `${tempMin}°F`;
+    })
+    document.getElementById("circle").addEventListener("mouseout", function(event){
+      event.target.style.background= "#ad1457"
+      tempIcons.textContent = `${tempMax}°F`;
+    })
   }
+  
 }
+
 
 function clothingTempLogic(tempMax){
   let weatherClothingType = []
@@ -147,44 +193,9 @@ function displayClothingCard(items, weatherClothingType){
       return createClothingCard(displayRandom, randomClassName);
     } 
     return randomProperty(random)
-  }
-    
-  
-    
+    }
+
+
   } 
-}
-
-
-
-//code for weather object
-let code = 
-{
-0 : "Clear sky",
-1: "Mainly clear, partly cloudy, and overcast",
-2: "Mainly clear, partly cloudy, and overcast",
-3: "Mainly clear, partly cloudy, and overcast",
-45: "Fog and depositing rime fog",
-48: "Fog and depositing rime fog",
-51: "Drizzle: Light, moderate, and dense intensity",
-53: "Drizzle: Light, moderate, and dense intensity",
-55: "Drizzle: Light, moderate, and dense intensity",
-56:	"Freezing Drizzle: Light and dense intensity",
-57:	"Freezing Drizzle: Light and dense intensity",
-61:	"Rain: Slight, moderate and heavy intensity",
-63:	"Rain: Slight, moderate and heavy intensity",
-65:	"Rain: Slight, moderate and heavy intensity",
-66:	"Freezing Rain: Light and heavy intensity",
-67:	"Freezing Rain: Light and heavy intensity",
-71: "Snow fall: Slight, moderate, and heavy intensity",
-73: "Snow fall: Slight, moderate, and heavy intensity",
-75:	"Snow fall: Slight, moderate, and heavy intensity",
-77:	"Snow grains",
-80: "Rain showers: Slight, moderate, and violent",
-81: "Rain showers: Slight, moderate, and violent",
-82: "Rain showers: Slight, moderate, and violent",
-85: "Snow showers slight and heavy",
-86: "Snow showers slight and heavy",
-95: "Thunderstorm: Slight or moderate",
-96: "Thunderstorm with slight and heavy hail",
-99: "Thunderstorm with slight and heavy hail"
+  
 }

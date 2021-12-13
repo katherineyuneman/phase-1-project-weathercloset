@@ -9,6 +9,7 @@ function createClothingCard(clothingItem, className){
 
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
+  cardImageDiv.id="card"
   cardDiv[0].appendChild(cardImageDiv)
 
   let itemImage = document.createElement("img")
@@ -30,5 +31,5 @@ function createClothingCard(clothingItem, className){
     ul.textContent = `${key}: ${clothingItem.details[key]}`
     cardImageDiv.appendChild(ul)
   }
-  
 }
+

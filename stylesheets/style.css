@@ -52,7 +52,19 @@ p{
   font: 32px Arial, sans-serif;
 } */
 
-
+#circle{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 50%;
+  padding-bottom: 0;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  font-style: bold;
+  /* border: 3px solid #000; */
+  background: #ad1457
+}
 .circle {
   width: 150px;
   height: 150px;
@@ -64,7 +76,7 @@ p{
   color: white;
   font-style: bold;
   /* border: 3px solid #000; */
-  background-color: #ad1457
+  background: #ad1457
 }
 .image{
   width: 75px;
@@ -154,6 +166,10 @@ p{
   box-shadow: 10px 5px 10px rgb(185, 185, 185);
   margin-top: 10px;
   /* border: black solid */
+  }
+
+  #card{
+    border: none
   }
 
 /* The Modal (background) */

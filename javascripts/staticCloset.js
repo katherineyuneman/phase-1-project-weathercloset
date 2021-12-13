@@ -10,7 +10,6 @@ fetch (`http://localhost:3000/itemInfo`)
   )
 
 
-
 let collapsible = document.getElementsByClassName("collapsible");
 let i;
   for (i = 0; i < collapsible.length; i++) {

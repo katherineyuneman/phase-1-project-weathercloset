@@ -8,7 +8,7 @@ Weather Closet is a web application that tracks your clothing and provides you w
 - You will get today's weather details for your city
   - Maximum temperature for today
   - Specific details about the weather
-- You will also get randomized clothing item suggestions from each category required for that temperature
+- You will also get randomized clothing item suggestions from each category required for that temperature ONLY if that clothing item exists in your closet (ex: if you have no pants, pants will not show up)
 
 
 
