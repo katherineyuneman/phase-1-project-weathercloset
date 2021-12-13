@@ -1,4 +1,3 @@
-
 // get today's date to match date in weatherAPI //
 
 let today = new Date();
@@ -25,7 +24,6 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
   removeAllChildNodes(weatherSpan);
   removeAllChildNodes(randomCardDiv[0]);
 
-  
   let inputZipCode = document.getElementById("input_text").value
   return fetch (`https://geocoding-api.open-meteo.com/v1/search?name=${inputZipCode}&count=1`)
   .then(resp => resp.json())
@@ -153,18 +151,15 @@ function displayClothingCard(items, weatherClothingType){
     let random = items.filter(findItem => findItem.Type === `${item}`)
     console.log("random items:", random.length)
     if (random.length != 0){
-    let randomProperty = function (random){
+      let randomProperty = function (random){
       let keys = Object.keys(random);
       let displayRandom = random[keys[ keys.length * Math.random() << 0]];
       let randomClassName="random-card-container"
       return createClothingCard(displayRandom, randomClassName);
-    } 
+      } 
     return randomProperty(random)
     }
-
-
-  } 
-  
+  }  
 }
 
 

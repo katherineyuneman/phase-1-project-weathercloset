@@ -1,4 +1,4 @@
-// fetching full static closet from db.json & displaying full closet //
+// fetching full static closet from db.json & displaying full closet upon cllick //
 
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())

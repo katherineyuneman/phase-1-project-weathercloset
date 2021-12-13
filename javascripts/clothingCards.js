@@ -31,6 +31,4 @@ function createClothingCard(clothingItem, className){
     ul.textContent = `${key}: ${clothingItem.details[key]}`
     cardImageDiv.appendChild(ul)
   }
-
-
 }

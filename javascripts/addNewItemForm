@@ -15,10 +15,9 @@ function closeForm(){
 }
 
 let addToCloset = document.querySelector('form')
-
 addToCloset.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(event.target)
+  // console.log(event.target)
   let closetForm = document.getElementById("addToClosetForm");
   closetForm.style.display = "none"
   let newClothingitem = 

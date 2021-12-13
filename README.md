@@ -33,12 +33,15 @@ https://open-meteo.com/en/docs
 - Ability to filter through closet items
 
 ## Resources
-The following articles were used to help assist rounding of the latitude/longitude needed to input into the weather API and how to randomize an array of objects.
+Note: MaterialzeCSS was used to create some of the buttons and main CSS and HTML features.
+
+The following articles were used to help assist rounding of the latitude/longitude needed to input into the weather API and how to randomize an array of objects as well as a few other helpful links.
 
 Rounding to a specific number of decimal points
 https://medium.com/swlh/how-to-round-to-a-certain-number-of-decimal-places-in-javascript-ed74c471c1b8
 
 Randomizing an array
+https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
 https://medium.com/@fyoiza/how-to-randomize-an-array-in-javascript-8505942e452
 
 Creating a dynamically-sized collapsible container
@@ -46,4 +49,6 @@ https://www.w3schools.com/howto/howto_js_collapsible.asp
 
 Removing Child Nodes
 https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+
+All clothing photos are either H&M, Gap, or Banana Republic
 

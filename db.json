@@ -54,6 +54,61 @@
         "Season": "summer"
       },
       "id": "u8CK_58"
+    },
+    {
+      "Type": "shorts",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F50%2Fa9%2F50a92b9692a76810e11498d94d51bc7696fce32e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "green",
+        "Season": "summer"
+      },
+      "id": "xsR4j5S"
+    },
+    {
+      "Type": "jacket",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff6%2F66%2Ff66666bca0c1d742134b55eb71fe4624fb54e576.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "white",
+        "Season": "fall"
+      },
+      "id": "dgeqblo"
+    },
+    {
+      "Type": "t-shirt",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F1b%2F0e%2F1b0eec6071107f9526310135ad0797305a97c34e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "graphic",
+        "Season": "all"
+      },
+      "id": "xHamP2z"
+    },
+    {
+      "Type": "pants",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F29%2F30%2F2930d00b0f58e8eb8d90bab290b31774ea9202ee.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "6",
+        "Color": "black",
+        "Season": "all"
+      },
+      "id": "dCjjqqT"
+    },
+    {
+      "Type": "shirt",
+      "imageURL": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe5%2F37%2Fe53701e3e615a840ead1eeb1f0785dfe91bc0822.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+      "details": {
+        "Brand": "h&m",
+        "Size": "small",
+        "Color": "black",
+        "Season": "all"
+      },
+      "id": "gs7ijv-"
     }
   ]
 }
