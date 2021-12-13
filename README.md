@@ -3,8 +3,8 @@
 Weather Closet is a web application that tracks your clothing and provides you with a weather update and simple suggestions on what to wear based on your closet.
 
 ## How to Use
-- Add items to your closet by clicking 'Add to Closet' to add a clothing item but submitted a pre-determined URL.
-- Once you have your closet set, submit your zip code
+- Start by adding items to your closet by clicking 'Add to Closet' to add a clothing item using a pre-determined URL for the image.
+- Once you have all of your closet set and items added, submit your zip code
 - You will get today's weather details for your city
   - Maximum temperature for today
   - Specific details about the weather
@@ -32,5 +32,7 @@ https://medium.com/@fyoiza/how-to-randomize-an-array-in-javascript-8505942e452
 
 
 ## Future Enhancements
-Upload your own photo to the closet
+- Upload your own photo to the closet
+- Drop down menu items for adding to the closet
+- More nuanced weather and temperature logic for randomization of clothing
 

@@ -37,8 +37,9 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
     let zipLongRounded = roundAccurately(zipLong, 2)
     let zipState = results.results[0].admin1;
 
-
     displayCityName(zipCityName, zipState)
+
+    // takes latitude and longitude rounded and inserts into API URL
     
     return fetch (`https://api.open-meteo.com/v1/forecast?latitude=${zipLatRounded}&longitude=${zipLongRounded}&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York`)
       .then(resp => resp.json())
@@ -50,7 +51,6 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
         
         dateMap(weatherDate, weatherCode, tempMin, tempMax);
         clothingTempLogic(tempMax)
-        // console.log("weather deets:", weather, weatherDate, weatherCode,tempMin, tempMax)
         return weather, weatherDate, weatherCode
     })
   })
@@ -78,8 +78,7 @@ function displayCityName(zipCityName, zipState){
 }
 
 function dateMap(weatherDate, weatherCode, tempMin, tempMax){
-
-  // selecting today in 5 day forecast from API
+  // selecting today in 5 day forecast from API & code object found at the bottom of index.js
   if (today === weatherDate && `${weatherCode}` in code){
     let weatherCodeDescription = code[`${weatherCode}`]
     console.log("weatherCode description:", weatherCodeDescription);
@@ -113,7 +112,7 @@ function dateMap(weatherDate, weatherCode, tempMin, tempMax){
 function clothingTempLogic(tempMax){
   let weatherClothingType = []
     if (tempMax <=50){
-      weatherClothingType.push("sweater", "jacket", "pants")
+      weatherClothingType.push("sweater", "pants","jacket")
     }
     else if (tempMax <= 70){
       weatherClothingType.push("pants", "shirt")
@@ -122,9 +121,10 @@ function clothingTempLogic(tempMax){
       weatherClothingType.push("shorts", "t-shirt")
     }
   whatToWearToday(weatherClothingType);
-  return console.log("type with temp max:",weatherClothingType, tempMax)
+  return weatherClothingType, tempMax
 }
 
+// fetches from db.json file
 
 function whatToWearToday(weatherClothingType){
   fetch (`http://localhost:3000/itemInfo`)
