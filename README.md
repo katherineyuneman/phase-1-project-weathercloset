@@ -24,6 +24,14 @@ https://open-meteo.com/en/docs
 ## JSON Server details
 - All clothing items are posted to a db.json server that contains an array of clothing item objects
 
+## Future Enhancements
+- Ability to remove items from your closet 
+- Upload your own photo to the closet
+- Drop down menu items for adding to the closet
+- More nuanced weather and temperature logic for randomization of clothing
+- Robust weather code table with icons to match
+- Ability to filter through closet items
+
 ## Resources
 The following articles were used to help assist rounding of the latitude/longitude needed to input into the weather API and how to randomize an array of objects.
 
@@ -36,12 +44,6 @@ https://medium.com/@fyoiza/how-to-randomize-an-array-in-javascript-8505942e452
 Creating a dynamically-sized collapsible container
 https://www.w3schools.com/howto/howto_js_collapsible.asp
 
-
-## Future Enhancements
-- Ability to remove items from your closet 
-- Upload your own photo to the closet
-- Drop down menu items for adding to the closet
-- More nuanced weather and temperature logic for randomization of clothing
-- Robust weather code table with icons to match
-- Ability to filter through closet items
+Removing Child Nodes
+https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
 
