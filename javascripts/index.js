@@ -57,7 +57,6 @@ document.getElementById("submit-btn").addEventListener("click", function(event){
 });
 
 
-
     // weather callback functions
 
 function removeAllChildNodes(parent) {
@@ -136,17 +135,25 @@ function displayClothingCard(items, weatherClothingType){
   weatherClothingType.forEach(item => findType(item))
 
   function findType (item){
+    console.log("item name!!:",item)
+    
     let random = items.filter(findItem => findItem.Type === `${item}`)
-    console.log("random items:", random)
+    console.log("random items:", random.length)
+    if (random.length != 0){
     let randomProperty = function (random){
       let keys = Object.keys(random);
       let displayRandom = random[keys[ keys.length * Math.random() << 0]];
       let randomClassName="random-card-container"
       return createClothingCard(displayRandom, randomClassName);
-    }
-  return randomProperty(random)
+    } 
+    return randomProperty(random)
+  }
+    
+  
+    
   } 
 }
+
 
 
 //code for weather object

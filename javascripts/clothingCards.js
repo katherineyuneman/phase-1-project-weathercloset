@@ -1,3 +1,9 @@
+/* createClothingCard used in 3 modules: 
+1) adding new item to closet (displays on DOM)
+2) displaying entire static closet
+3) displaying random clothing item suggestions based on temperature/weather
+*/
+
 function createClothingCard(clothingItem, className){
   let cardDiv = document.getElementsByClassName(`${className}`)
 
@@ -24,4 +30,5 @@ function createClothingCard(clothingItem, className){
     ul.textContent = `${key}: ${clothingItem.details[key]}`
     cardImageDiv.appendChild(ul)
   }
+  
 }

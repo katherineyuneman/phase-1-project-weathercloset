@@ -30,9 +30,13 @@ https://medium.com/swlh/how-to-round-to-a-certain-number-of-decimal-places-in-ja
 Randomizing an array
 https://medium.com/@fyoiza/how-to-randomize-an-array-in-javascript-8505942e452
 
+Creating a dynamically-sized collapsible container
+https://www.w3schools.com/howto/howto_js_collapsible.asp
+
 
 ## Future Enhancements
 - Upload your own photo to the closet
 - Drop down menu items for adding to the closet
 - More nuanced weather and temperature logic for randomization of clothing
+- Robust weather code table with icons to match
 

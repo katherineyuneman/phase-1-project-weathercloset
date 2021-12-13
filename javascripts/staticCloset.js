@@ -1,7 +1,4 @@
-// 
-
-// // my closet detail cards //
-
+// fetching full static closet from db.json & displaying full closet //
 
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
@@ -13,7 +10,6 @@ fetch (`http://localhost:3000/itemInfo`)
   )
 
 
-// display my FULL closet //
 
 let collapsible = document.getElementsByClassName("collapsible");
 let i;
@@ -27,6 +23,5 @@ let i;
       else {
       content.style.display = "block";
       }
-
     });
   };
