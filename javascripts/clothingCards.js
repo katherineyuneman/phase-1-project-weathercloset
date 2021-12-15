@@ -6,7 +6,7 @@
 
 function createClothingCard(clothingItem, className){
   let cardDiv = document.getElementsByClassName(`${className}`)
-
+  console.log("c");
   let cardImageDiv = document.createElement("div")
   cardImageDiv.className = "card-image"
   cardImageDiv.id="card"

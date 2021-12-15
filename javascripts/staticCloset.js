@@ -1,14 +1,17 @@
 // fetching full static closet from db.json & displaying full closet upon cllick //
 
+console.log("a")
 fetch (`http://localhost:3000/itemInfo`)
   .then(resp => resp.json())
-  .then(items => items
+  .then(items => {
+  console.log("b")
+    items
     .forEach(item => {
       let closetClassName = "card-container"
       createClothingCard(item, closetClassName)
     })
-  )
-
+  })
+  console.log("d");
 
 let collapsible = document.getElementsByClassName("collapsible");
 let i;

@@ -162,6 +162,24 @@ function displayClothingCard(items, weatherClothingType){
   }  
 }
 
+// code added during review:
+
+const colorizeBtn = document.getElementById("colorize")
+colorizeBtn.addEventListener("click", randomizeColor)
+
+function randomizeColor(){
+  const names = document.querySelectorAll(".item_title")
+  names.forEach(name => {
+    let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    name.style.color = randomColor
+  })
+}
+
+
+
+
+
+
 
 //code for weather object
 let code = 
@@ -195,3 +213,7 @@ let code =
 96: "Thunderstorm with slight and heavy hail",
 99: "Thunderstorm with slight and heavy hail"
 }
+
+
+
+

@@ -1,8 +1,8 @@
 // add to my closet button + form //
 
-document.getElementById("closet").addEventListener("click", openForm)
+document.getElementById("closet").addEventListener("click", openForm("hello"))
 
-function openForm(){
+function openForm(string){
   let closetForm = document.getElementById("addToClosetForm");
   closetForm.style.display = "block";
   let close = document.getElementById("close")
